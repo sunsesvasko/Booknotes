@@ -31,9 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', viewRoutes)
 
-app.all('*', (req, res, next) => {
-    next(new AppError(`Can't find ${req.originalUrl} on this server!`), 404);
-});
+// app.all('*', (req, res, next) => {
+//     next(new AppError(`Can't find ${req.originalUrl} on this server!`), 404);
+// });
 
 app.use(globalErrorHandler);
 

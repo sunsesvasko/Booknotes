@@ -1,5 +1,5 @@
 exports.getLanding = (req, res) => {
-    res.status(200).render('base', {
-        title: 'Landing Page'
+    res.status(200).render('home', {
+        title: 'Landing Page',
     });
 }
