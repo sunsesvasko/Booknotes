@@ -26,6 +26,8 @@ if(closeMenu) {
         openMenu.style.display = 'block';
         closeMenu.style.display = 'none';
         dropDownMenu.style.display = 'none';
-        sections.forEach(section => section.style.display = 'block');
+        sections.forEach(section => section.style.display = 'flex');
     })
 }
+
+console.log(window.screen.height);

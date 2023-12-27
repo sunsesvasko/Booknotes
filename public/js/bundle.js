@@ -146,10 +146,11 @@ if (closeMenu) {
     closeMenu.style.display = 'none';
     dropDownMenu.style.display = 'none';
     sections.forEach(function (section) {
-      return section.style.display = 'block';
+      return section.style.display = 'flex';
     });
   });
 }
+console.log(window.screen.height);
 },{}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

@@ -12,7 +12,8 @@
     font-family: JabcedHy;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    /* background-color: white; */
+    background-color: #FBEEC1;
 }
 
 .mainMenu h1 {
