@@ -3,6 +3,9 @@ const openMenu = document.querySelector('#openMenu');
 const closeMenu = document.querySelector('#closeMenu');
 const dropDownMenu = document.querySelector('.dropDownMenu');
 const aboutBtn = document.querySelector('#about');
+const header = document.querySelector('.mainMenu');
+
+const headerOffsetTop = header.offsetTop;
 
 // Switch elements at certain resolution
 if(window.screen.width < 700) {

@@ -123,6 +123,8 @@ var openMenu = document.querySelector('#openMenu');
 var closeMenu = document.querySelector('#closeMenu');
 var dropDownMenu = document.querySelector('.dropDownMenu');
 var aboutBtn = document.querySelector('#about');
+var header = document.querySelector('.mainMenu');
+var headerOffsetTop = header.offsetTop;
 
 // Switch elements at certain resolution
 if (window.screen.width < 700) {

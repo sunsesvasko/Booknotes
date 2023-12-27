@@ -6,6 +6,7 @@
 }
 
 .mainMenu {
+    width: 98.8vw;
     display: flex;
     padding: 1rem;
     /* font-family: 'Roboto Condensed', sans-serif; */
