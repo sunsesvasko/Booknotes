@@ -122,6 +122,7 @@ var sections = document.querySelectorAll('section');
 var openMenu = document.querySelector('#openMenu');
 var closeMenu = document.querySelector('#closeMenu');
 var dropDownMenu = document.querySelector('.dropDownMenu');
+var aboutBtn = document.querySelector('#about');
 
 // Switch elements at certain resolution
 if (window.screen.width < 700) {
@@ -156,6 +157,12 @@ if (closeMenu) {
     sections.forEach(function (section) {
       return section.style.display = 'flex';
     });
+  });
+}
+if (aboutBtn) {
+  aboutBtn.addEventListener('click', function () {
+    var sectionTwo = document.querySelector('.sectionTwo');
+    sectionTwo.scrollIntoView();
   });
 }
 },{}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

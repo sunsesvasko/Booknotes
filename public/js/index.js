@@ -2,6 +2,7 @@ const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
 const closeMenu = document.querySelector('#closeMenu');
 const dropDownMenu = document.querySelector('.dropDownMenu');
+const aboutBtn = document.querySelector('#about');
 
 // Switch elements at certain resolution
 if(window.screen.width < 700) {
@@ -35,5 +36,12 @@ if(closeMenu) {
         closeMenu.style.display = 'none';
         dropDownMenu.style.display = 'none';
         sections.forEach(section => section.style.display = 'flex');
+    })
+}
+
+if(aboutBtn) {
+    aboutBtn.addEventListener('click', () => {
+        const sectionTwo = document.querySelector('.sectionTwo');
+        sectionTwo.scrollIntoView();
     })
 }

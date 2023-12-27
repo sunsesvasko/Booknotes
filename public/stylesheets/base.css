@@ -4,7 +4,6 @@
     display: none;
 }
 
-body {
-    /* background-color: #9f754d; */
-    /* background-color: #659DBD; */
+html {
+    scroll-behavior: smooth;
 }
