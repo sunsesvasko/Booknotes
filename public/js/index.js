@@ -3,6 +3,14 @@ const openMenu = document.querySelector('#openMenu');
 const closeMenu = document.querySelector('#closeMenu');
 const dropDownMenu = document.querySelector('.dropDownMenu');
 
+// Switch elements at certain resolution
+if(window.screen.width < 700) {
+    const sectionTwo = document.querySelector('.sectionTwo');
+    const firstChild = sectionTwo.firstElementChild;
+    sectionTwo.removeChild(sectionTwo.firstElementChild);
+    sectionTwo.appendChild(firstChild);
+}
+
 addEventListener('resize', (e) => {
     if(window.screen.width > 550) {
         openMenu.style.display = 'none';
@@ -29,5 +37,3 @@ if(closeMenu) {
         sections.forEach(section => section.style.display = 'flex');
     })
 }
-
-console.log(window.screen.height);

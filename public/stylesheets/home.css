@@ -1,8 +1,27 @@
+body {
+    overflow-x: hidden;
+    background-image: url('/uploads/2550x2320bg.png');
+    background-repeat: no-repeat;
+}
 
+::-webkit-scrollbar {
+    width: 0.001px;
+    /* width: 10px; */
+}
 
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
 
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
 
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
 
+/* Section One */
 .sectionOne {
     width: 100vw;
     height: 1231px;
@@ -10,7 +29,7 @@
     align-items: center;
     justify-content: center;
     /* background-color: pink; */
-    background-image: url('/uploads/background.png');
+    /* background-image: url('/uploads/background.png'); */
 }
 
 .sectionOneContent {
@@ -32,9 +51,40 @@
     text-align: center;
 }
 
-#homePageBook {
+/* Section Two */
 
+.sectionTwo {
+    width: 100vw;
+    height: 1000px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    /* background-color: pink; */
 }
+
+.sectionTwoContent {
+    gap: 0.69rem;
+    color: white;
+    width: 575px;
+    height: 512px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionTwoContent h1 {
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.sectionTwoContent p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Section One Responsiveness */
 
 @media only screen and (max-height: 1080px) {
     .sectionOne {
@@ -43,12 +93,16 @@
 }
 
 @media only screen and (max-width: 1150px) {
-    .sectionOneContent { width: 400px }
-    .sectionOneContent h1 { font-size: 2.5rem; }
-    .sectionOneContent p { font-size: 1rem; }
-    #homePageBook { width: 256px; height: auto;}
+    .sectionOne{ height: 750px }
+    .sectionTwo { height: 500px }
+    .sectionTwoContent { height: 256px; }
+    .sectionOneContent, .sectionTwoContent { width: 400px }
+    .sectionOneContent h1, .sectionTwoContent h1 { font-size: 2.5rem; }
+    .sectionOneContent p, .sectionTwoContent p { font-size: 1rem; }
+    #homePageBook, #homeNotes { width: 256px; height: auto;}
 }
 
 @media only screen and (max-width: 700px) {
     .sectionOne { gap: 1rem; flex-direction: column; }
+    .sectionTwo { flex-direction: column; align-items: center;}
 }
