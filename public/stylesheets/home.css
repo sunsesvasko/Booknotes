@@ -1,7 +1,8 @@
 body {
     overflow-x: hidden;
-    background-image: url('/uploads/2550x2320bg.png');
-    background-repeat: no-repeat;
+    background-color: #659dbd;
+    /* background-image: url('/uploads/2550x2320bg.png'); */
+    /* background-repeat: no-repeat; */
 }
 
 ::-webkit-scrollbar {
@@ -26,6 +27,7 @@ body {
     width: 100vw;
     height: 1231px;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     /* background-color: pink; */
@@ -49,6 +51,23 @@ body {
 .sectionOneContent p {
     font-size: 1.5rem;
     text-align: center;
+}
+
+#toTopBtn {
+    width: 64px;
+    height: auto;
+    position: fixed;
+    bottom: 1rem;
+    right: 5%;
+}
+
+#toTopBtn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#toTopBtn:active {
+    transform: translateY(4px);
 }
 
 /* Section Two */

@@ -4,6 +4,7 @@ const closeMenu = document.querySelector('#closeMenu');
 const dropDownMenu = document.querySelector('.dropDownMenu');
 const aboutBtn = document.querySelector('#about');
 const header = document.querySelector('.mainMenu');
+const toTopBtn = document.querySelector('#toTopBtn');
 
 const headerOffsetTop = header.offsetTop;
 
@@ -21,6 +22,11 @@ addEventListener('resize', (e) => {
     } else if(window.screen.width < 550) {
         openMenu.style.display = 'block';
     }
+})
+
+addEventListener('scroll', () => {
+    if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) toTopBtn.style.display = 'block';
+    else toTopBtn.style.display = 'none';   
 })
 
 if(openMenu) {
@@ -46,5 +52,11 @@ if(aboutBtn) {
     aboutBtn.addEventListener('click', () => {
         const sectionTwo = document.querySelector('.sectionTwo');
         sectionTwo.scrollIntoView();
+    })
+}
+
+if(toTopBtn) {
+    toTopBtn.addEventListener('click', () => {
+        document.documentElement.scrollTop = 0;
     })
 }
