@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const exp = require('constants');
 
 const viewRoutes = require('./routes/viewRoutes');
+const userRoutes = require('./routes/userRoutes');
 const globalErrorHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
 
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 
 app.use('/', viewRoutes)
+app.use('/api/v1/users', userRoutes)
 
 // app.all('*', (req, res, next) => {
 //     next(new AppError(`Can't find ${req.originalUrl} on this server!`), 404);

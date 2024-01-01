@@ -14,10 +14,8 @@ process.on('uncaughtException', err => {
 
 const app = require('./app');
 
-// Set this up individually per project:
-
-// const DB = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);
-// mongoose.connect(DB).then(() => console.log('DB Connection Successful!'));
+const DB = process.env.DATABASE.replace('<password>', process.env.DATABASE_PASSWORD);
+mongoose.connect(DB).then(() => console.log('DB Connection Successful!'));
 
 const port = process.env.PORT;
 
