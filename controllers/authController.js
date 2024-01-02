@@ -66,3 +66,27 @@ exports.logout = (req, res) => {
 
     res.status(200).json({ status: 'success' });
 }
+
+exports.protect = catchAsync(async(req, res, next) => {
+    let token;
+
+    // 1) Getting token and checking if it's there
+    if(req.headers.authorization && req.headers.authorization.startsWith('Bearer')) token = req.headers.authorization.split(' ')[1];
+    else if(req.cookies.jwt) token = req.cookies.jwt;
+
+    if(!token) return next(new AppError('You aren\'t logged in! Please log in to get access.', 401));
+
+    // 2) Verifying token (since jwt.verify returns a callback, promisify will be used which will make it return a promise instead)
+    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+    // 3) Check if user still exists (decoded.id exists, because the payload given when signing a token is the user ID)
+    const user = await User.findById(decoded.id);
+    if(!user) return next(new AppError('This user doesn\'t exist.', 401));
+
+    // 4) To be implemented... Check if user changed password after the token was issued
+
+    // GRANT ACCESS TO PROTECTED ROUTE
+    req.user = user;
+    res.locals.user = user;
+    next();
+})
