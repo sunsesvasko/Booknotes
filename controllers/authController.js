@@ -46,3 +46,23 @@ exports.register = catchAsync(async(req, res, next) => {
     createSendToken(newUser, 201, res);
 });
 
+exports.login = catchAsync(async(req, res, next) => {
+    const { email, password } = req.body;
+
+    // Check if email and password are input
+    if(!email || !password) return next(new AppError('Please provide email and password!', 400));
+    // Check if user exists or the password is correct
+    const user = await User.findOne({ email });
+    if(!user || !await user.correctPassword(password, user.password)) return next(new AppError('Wrong credentials!', 401));
+
+    createSendToken(user, 200, res);
+});
+
+exports.logout = (req, res) => {
+    res.cookie('jwt', 'loggedout', {
+        maxAge: new Date(Date.now() + 1000),
+        httpOnly: true
+    });
+
+    res.status(200).json({ status: 'success' });
+}
