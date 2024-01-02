@@ -8,6 +8,8 @@ router.get('/logout', authController.logout);
 router.post('/login', authController.login);
 router.post('/register', authController.register)
 
+router.use(authController.protect);
+
 router.route('/').get(userController.getAllUsers)
                  .post(userController.createUser);
 

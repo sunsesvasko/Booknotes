@@ -60,10 +60,9 @@ exports.login = catchAsync(async(req, res, next) => {
 
 exports.logout = (req, res) => {
     res.cookie('jwt', 'loggedout', {
-        maxAge: new Date(Date.now() + 1000),
+        expires: new Date(Date.now() + 1000),
         httpOnly: true
     });
-
     res.status(200).json({ status: 'success' });
 }
 
@@ -90,3 +89,25 @@ exports.protect = catchAsync(async(req, res, next) => {
     res.locals.user = user;
     next();
 })
+
+// Use only for rendered pages, no errors are thrown
+exports.isLoggedIn = async(req, res, next) => {
+    if(req.cookies.jwt) {
+        try {
+            // 1) Verify the JWT token
+            const decoded = await promisify(jwt.token)(req.cookies.jwt, process.env.JWT_SECRET);
+
+            // 2) Check if user still exists
+            const currentUser = await User.findById(decoded.id);
+            if(!currentUser) return next();
+
+            // 3) // 3) Implement to check if user has changed password after the token was issued, which would require a new JWT upon change of password
+
+            // If there's a logged in user
+            res.locals.user = currentUser;
+            return next 
+        } catch(err) {
+            return next();
+        }
+    }
+}
