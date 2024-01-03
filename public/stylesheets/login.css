@@ -8,7 +8,7 @@
     background-color: #659dbd;
 }
 
-.loginContainer {
+.loginForm {
     width: 500px;
     height: auto;
     display: flex;
@@ -22,17 +22,17 @@
     background-color: #FBEEC1;
 }
 
-.loginContainer h1 {
+.loginForm h1 {
     font-size: 2rem;
     margin-bottom: 2rem;
 }
 
-.loginContainer label {
+.loginForm label {
     width: 100%;
     font-weight: 300;
 }
 
-.loginContainer input {
+.loginForm input {
     width: 100%;
     border: none;
     outline: none;

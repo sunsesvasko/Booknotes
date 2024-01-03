@@ -1,3 +1,5 @@
+import { login, logout } from './login';
+
 const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
 const closeMenu = document.querySelector('#closeMenu');
@@ -5,6 +7,8 @@ const dropDownMenu = document.querySelector('.dropDownMenu');
 const aboutBtn = document.querySelector('#about');
 const header = document.querySelector('.mainMenu');
 const toTopBtn = document.querySelector('#toTopBtn');
+const loginForm = document.querySelector('.loginForm');
+const LogoutBtn = document.querySelector('#logout');
 
 const headerOffsetTop = header.offsetTop;
 
@@ -16,6 +20,7 @@ if(window.screen.width < 700) {
     sectionTwo.appendChild(firstChild);
 }
 
+// Window Events
 addEventListener('resize', (e) => {
     if(window.screen.width > 550) {
         openMenu.style.display = 'none';
@@ -25,10 +30,11 @@ addEventListener('resize', (e) => {
 })
 
 addEventListener('scroll', () => {
-    if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) toTopBtn.style.display = 'block';
-    else toTopBtn.style.display = 'none';   
+    if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) toTopBtn.style.visibility = 'visible';
+    else toTopBtn.style.visibility = 'hidden';   
 })
 
+// Hamburger Menu 
 if(openMenu) {
     openMenu.addEventListener('click', () => {
         openMenu.style.display = 'none';
@@ -48,6 +54,7 @@ if(closeMenu) {
     })
 }
 
+// Switch Image and Paragraph on certain resolution
 if(aboutBtn) {
     aboutBtn.addEventListener('click', () => {
         const sectionTwo = document.querySelector('.sectionTwo');
@@ -55,9 +62,29 @@ if(aboutBtn) {
     })
 }
 
+// Button that takes you to the top of the page
 if(toTopBtn) {
     toTopBtn.addEventListener('click', () => {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
     })
 }
+
+// Login 
+if(loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.querySelector('#email').value;
+        const password = document.querySelector('#password').value;
+        login(email, password);
+    })
+}
+
+// Logout
+if(LogoutBtn) {
+    LogoutBtn.addEventListener('click', logout);
+}
+
+// addEventListener('click', () => {
+//     console.log(localStorage.getItem('user'));
+// })

@@ -12,10 +12,14 @@ header
             li.link
                 a#contact(href='#') Contact
         ul.account
-            li.link 
-                a.link(href='/login') Login
-            li.link 
-                a.link(href='#') Register
+            if user
+                li.link 
+                    a.link#logout Logout
+            else
+                li.link 
+                    a.link(href='/login') Login
+                li.link 
+                    a.link(href='#') Register
             img#openMenu(src="/uploads/hamburger.png", alt="Open Menu")
             img#closeMenu(src='/uploads/close.png', alt='Close Menu')
     ul.dropDownMenu

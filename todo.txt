@@ -1,2 +1,7 @@
+=== PRIORITY TO-DO LIST ===
 1. Connect Login/Register/Logout Backend with Frontned
 2. Check if user is logged in when rending a new view
+
+=== TO-DO LIST ===
+1. Add an Error Page
+2. Add a Better Alert Feature

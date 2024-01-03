@@ -6,12 +6,12 @@ block append head
 
 block content
     section.loginSection
-        form.loginContainer
+        form.loginForm
             h1 Log In Your Account
             label(for="email") Email
             input(type="text" name="email" id="email") 
             label(for="password") Password 
-            input(type="text" name="password" id="password") 
+            input(type="password" name="password" id="password") 
             button#logMeIn LOG ME IN
             p#noAccount Don't have an account? 
                 a(href='/register') Sign Up

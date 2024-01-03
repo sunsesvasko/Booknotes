@@ -55,6 +55,10 @@
     text-decoration: none;
 }
 
+#logout {
+    cursor: pointer;
+}
+
 #openMenu {
     width: 24px;
     display: none;

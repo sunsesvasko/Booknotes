@@ -42,6 +42,7 @@ body {
     position: fixed;
     bottom: 1rem;
     right: 5%;
+    visibility: hidden;
 }
 
 #toTopBtn:hover {
