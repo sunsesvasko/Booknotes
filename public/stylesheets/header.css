@@ -1,19 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@font-face {
-    font-family: JabcedHy;
-    src: url(JabcedHy.ttf);
-}
-
 .mainMenu {
     width: 98.8vw;
     display: flex;
     padding: 1rem;
-    /* font-family: 'Roboto Condensed', sans-serif; */
     font-family: JabcedHy;
     align-items: center;
     justify-content: space-between;
-    /* background-color: white; */
     background-color: #FBEEC1;
 }
 

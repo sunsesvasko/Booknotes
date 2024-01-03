@@ -1,9 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+@font-face {
+    font-family: JabcedHy;
+    src: url(JabcedHy.ttf);
+}
+
 #forest-ext-shadow-host {
     display: none;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 0.001px;
+    height: 0.001px;
+    /* width: 10px; */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
 }

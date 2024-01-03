@@ -3,3 +3,9 @@ exports.getLanding = (req, res) => {
         title: 'Landing Page',
     });
 }
+
+exports.getLoginPage = (req, res) => {
+    res.status(200).render('login', {
+        title: 'Login Page'
+    })
+}
