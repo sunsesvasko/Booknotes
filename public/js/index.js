@@ -24,12 +24,12 @@ if(window.screen.width < 700) {
 
 // Window Events
 addEventListener('resize', (e) => {
-    if(openMenu) {
-        if(window.screen.width > 550) {
-            openMenu.style.display = 'none';
-        } else if(window.screen.width < 550) {
-            openMenu.style.display = 'block';
-        }
+    // if(openMenu) {
+    // }
+    if(window.screen.width > 550) {
+        openMenu.style.display = 'none';
+    } else if(window.screen.width < 550) {
+        openMenu.style.display = 'block';
     }
 })
 

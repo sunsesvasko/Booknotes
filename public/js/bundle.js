@@ -5482,7 +5482,7 @@ var logout = exports.logout = /*#__PURE__*/function () {
         case 3:
           res = _context2.sent;
           if (res.data.status === 'success') {
-            alert('Logged in successfully');
+            alert('Logged out successfully');
             window.setTimeout(function () {
               location.assign('/');
             }, 1500);
@@ -5581,12 +5581,12 @@ if (window.screen.width < 700) {
 
 // Window Events
 addEventListener('resize', function (e) {
-  if (openMenu) {
-    if (window.screen.width > 550) {
-      openMenu.style.display = 'none';
-    } else if (window.screen.width < 550) {
-      openMenu.style.display = 'block';
-    }
+  // if(openMenu) {
+  // }
+  if (window.screen.width > 550) {
+    openMenu.style.display = 'none';
+  } else if (window.screen.width < 550) {
+    openMenu.style.display = 'block';
   }
 });
 addEventListener('scroll', function () {
@@ -5688,7 +5688,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62037" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62408" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
