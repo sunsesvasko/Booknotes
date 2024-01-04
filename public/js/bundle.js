@@ -5571,22 +5571,22 @@ var LogoutBtn = document.querySelector('#logout');
 var registerForm = document.querySelector('.registerForm');
 var headerOffsetTop = header.offsetTop;
 
-// Switch elements at certain resolution
-if (window.screen.width < 700) {
-  var sectionTwo = document.querySelector('.sectionTwo');
-  var firstChild = sectionTwo.firstElementChild;
-  sectionTwo.removeChild(sectionTwo.firstElementChild);
-  sectionTwo.appendChild(firstChild);
-}
-
 // Window Events
 addEventListener('resize', function (e) {
-  // if(openMenu) {
-  // }
-  if (window.screen.width > 550) {
-    openMenu.style.display = 'none';
-  } else if (window.screen.width < 550) {
-    openMenu.style.display = 'block';
+  if (openMenu) {
+    if (window.screen.width > 550) {
+      openMenu.style.display = 'none';
+    } else if (window.screen.width < 550) {
+      openMenu.style.display = 'block';
+    }
+  }
+  var sectionTwo = document.querySelector('.sectionTwo');
+  if (sectionTwo) {
+    if (window.screen.width < 700) {
+      var firstChild = sectionTwo.firstElementChild;
+      sectionTwo.removeChild(sectionTwo.firstElementChild);
+      sectionTwo.appendChild(firstChild);
+    }
   }
 });
 addEventListener('scroll', function () {

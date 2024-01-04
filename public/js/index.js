@@ -14,24 +14,25 @@ const registerForm = document.querySelector('.registerForm');
 
 const headerOffsetTop = header.offsetTop;
 
-// Switch elements at certain resolution
-if(window.screen.width < 700) {
-    const sectionTwo = document.querySelector('.sectionTwo');
-    const firstChild = sectionTwo.firstElementChild;
-    sectionTwo.removeChild(sectionTwo.firstElementChild);
-    sectionTwo.appendChild(firstChild);
-}
-
 // Window Events
 addEventListener('resize', (e) => {
-    // if(openMenu) {
-    // }
-    if(window.screen.width > 550) {
-        openMenu.style.display = 'none';
-    } else if(window.screen.width < 550) {
-        openMenu.style.display = 'block';
+    if(openMenu) {
+        if(window.screen.width > 550) {
+            openMenu.style.display = 'none';
+        } else if(window.screen.width < 550) {
+            openMenu.style.display = 'block';
+        }
     }
-})
+
+    const sectionTwo = document.querySelector('.sectionTwo');
+    if(sectionTwo) {
+        if(window.screen.width < 700) {
+            const firstChild = sectionTwo.firstElementChild;
+            sectionTwo.removeChild(sectionTwo.firstElementChild);
+            sectionTwo.appendChild(firstChild);
+        }
+    }
+});
 
 addEventListener('scroll', () => {
     if(toTopBtn) {
