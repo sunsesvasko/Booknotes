@@ -6,6 +6,7 @@ const openMenu = document.querySelector('#openMenu');
 const closeMenu = document.querySelector('#closeMenu');
 const dropDownMenu = document.querySelector('.dropDownMenu');
 const aboutBtn = document.querySelector('#about');
+const contactBtn = document.querySelector('#contact');
 const header = document.querySelector('.mainMenu');
 const toTopBtn = document.querySelector('#toTopBtn');
 const loginForm = document.querySelector('.loginForm');
@@ -66,6 +67,13 @@ if(aboutBtn) {
     aboutBtn.addEventListener('click', () => {
         const sectionTwo = document.querySelector('.sectionTwo');
         sectionTwo.scrollIntoView();
+    })
+}
+
+if(contactBtn) {
+    contactBtn.addEventListener('click', () => {
+        const sectionThree = document.querySelector('.sectionThree');
+        sectionThree.scrollIntoView();
     })
 }
 

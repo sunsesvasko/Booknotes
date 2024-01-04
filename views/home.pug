@@ -16,3 +16,15 @@ block content
         .sectionTwoContent
             h1 About Us
             p Note-taking transforms reading into an active process, aiding comprehension and retention. It's a personalized roadmap for organizing thoughts and fostering critical thinking, deepening your connection with the material.
+    section.sectionThree
+        .sectionThreeContent
+            h1 Contact Us!
+            label(for="name") Name *
+            input(type="text" name="name" id="name" required) 
+            label(for="email") Email *
+            input(type="text" name="email" id="email" required) 
+            label(for="enquiry") Enquiry Type *
+            input(type="text" name="enquiry" id="enquiry" required) 
+            label(for="message") Message *
+            textarea(name="message", cols="65", rows="10" required) 
+            button#sendMessage SEND MESSAGE

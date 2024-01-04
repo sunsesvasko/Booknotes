@@ -5564,6 +5564,7 @@ var openMenu = document.querySelector('#openMenu');
 var closeMenu = document.querySelector('#closeMenu');
 var dropDownMenu = document.querySelector('.dropDownMenu');
 var aboutBtn = document.querySelector('#about');
+var contactBtn = document.querySelector('#contact');
 var header = document.querySelector('.mainMenu');
 var toTopBtn = document.querySelector('#toTopBtn');
 var loginForm = document.querySelector('.loginForm');
@@ -5623,6 +5624,12 @@ if (aboutBtn) {
   aboutBtn.addEventListener('click', function () {
     var sectionTwo = document.querySelector('.sectionTwo');
     sectionTwo.scrollIntoView();
+  });
+}
+if (contactBtn) {
+  contactBtn.addEventListener('click', function () {
+    var sectionThree = document.querySelector('.sectionThree');
+    sectionThree.scrollIntoView();
   });
 }
 
