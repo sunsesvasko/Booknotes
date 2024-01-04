@@ -3,5 +3,26 @@ extends base
 block append head
     link(rel='stylesheet', href='/stylesheets/register.css')
 
-block content   
-    h1 Hi
+block content
+    section.registerSection
+        form.registerForm
+            h1 Register Your Account
+            label(for="name") Name
+            input(type="text" name="name" id="name") 
+            label(for="email") Email
+            input(type="text" name="email" id="email") 
+            label(for="password") Password 
+            input(type="password" name="password" id="password") 
+            label(for="passwordConfirm") Password Confirm
+            input(type="password" name="passwordConfirm" id="passwordConfirm") 
+            label#gender(for="gender") Gender
+                .gender--container 
+                    .male--container 
+                        input(type='radio' name='gender' value='Male')
+                        label Male
+                    .female--container 
+                        input(type='radio' name='gender' value='Female')
+                        label Female
+            button#registerMe REGISTER ME
+            p#account Already have an account? 
+                a(href='/login') Log In

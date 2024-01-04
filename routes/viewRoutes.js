@@ -10,5 +10,6 @@ router.get('/', authController.isLoggedIn,
 router.get('/', viewController.getLanding);
 
 router.get('/login', viewController.getLoginPage)
+router.get('/register', viewController.getRegisterPage)
 
 module.exports = router;

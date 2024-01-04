@@ -9,3 +9,9 @@ exports.getLoginPage = (req, res) => {
         title: 'Login Page'
     })
 }
+
+exports.getRegisterPage = (req, res) => {
+    res.status(200).render('register', {
+        title: 'Register Page'
+    })
+}
