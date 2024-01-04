@@ -55,7 +55,7 @@
     text-decoration: none;
 }
 
-#logout {
+#profile, #logout {
     cursor: pointer;
 }
 

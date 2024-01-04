@@ -170,13 +170,16 @@ body {
     .sectionOne{ height: 750px }
     .sectionTwo { height: 500px }
     .sectionTwoContent { height: 256px; }
-    .sectionOneContent, .sectionTwoContent { width: 400px }
+    .sectionOneContent, .sectionTwoContent, .sectionThreeContent { width: 400px }
     .sectionOneContent h1, .sectionTwoContent h1 { font-size: 2.5rem; }
     .sectionOneContent p, .sectionTwoContent p { font-size: 1rem; }
     #homePageBook, #homeNotes { width: 256px; height: auto;}
+    #message { width: 30em }
 }
 
 @media only screen and (max-width: 700px) {
     .sectionOne { gap: 1rem; flex-direction: column; }
     .sectionTwo { flex-direction: column; align-items: center;}
+    .sectionThreeContent { width: 300px; }
+    #message { width: 22em }
 }

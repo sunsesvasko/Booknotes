@@ -1,5 +1,6 @@
 === PRIORITY TO-DO LIST ===
-
+1. Create a notes page
+2. Create a profile Page
 
 === TO-DO LIST eventually ===
 1. Add an Error Page

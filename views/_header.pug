@@ -5,14 +5,26 @@ header
     nav.mainMenu
         h1#title ReadMemoir
         ul.lists
-            li.link
-                a#home(href='/') Home
-            li.link
-                a#about(href='#') About
-            li.link
-                a#contact(href='#') Contact
+            if user
+                li.link
+                    a#home(href='/') Home
+                li.link
+                    a#home(href='#') Notes
+                li.link
+                    a#about(href='#') About
+                li.link
+                    a#contact(href='#') Contact
+            else 
+                li.link
+                    a#home(href='/') Home
+                li.link
+                    a#about(href='#') About
+                li.link
+                    a#contact(href='#') Contact
         ul.account
             if user
+                li.link
+                    a.link#profile Profile
                 li.link 
                     a.link#logout Logout
             else
