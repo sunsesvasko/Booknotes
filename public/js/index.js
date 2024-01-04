@@ -1,4 +1,5 @@
 import { login, logout } from './login';
+import { register } from './register';
 
 const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
@@ -9,6 +10,7 @@ const header = document.querySelector('.mainMenu');
 const toTopBtn = document.querySelector('#toTopBtn');
 const loginForm = document.querySelector('.loginForm');
 const LogoutBtn = document.querySelector('#logout');
+const registerForm = document.querySelector('.registerForm');
 
 const headerOffsetTop = header.offsetTop;
 
@@ -22,16 +24,20 @@ if(window.screen.width < 700) {
 
 // Window Events
 addEventListener('resize', (e) => {
-    if(window.screen.width > 550) {
-        openMenu.style.display = 'none';
-    } else if(window.screen.width < 550) {
-        openMenu.style.display = 'block';
+    if(openMenu) {
+        if(window.screen.width > 550) {
+            openMenu.style.display = 'none';
+        } else if(window.screen.width < 550) {
+            openMenu.style.display = 'block';
+        }
     }
 })
 
 addEventListener('scroll', () => {
-    if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) toTopBtn.style.visibility = 'visible';
-    else toTopBtn.style.visibility = 'hidden';   
+    if(toTopBtn) {
+        if(document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) toTopBtn.style.visibility = 'visible';
+        else toTopBtn.style.visibility = 'hidden';   
+    }
 })
 
 // Hamburger Menu 
@@ -85,6 +91,19 @@ if(LogoutBtn) {
     LogoutBtn.addEventListener('click', logout);
 }
 
-// addEventListener('click', () => {
-//     console.log(localStorage.getItem('user'));
-// })
+// Register
+if(registerForm) {
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const dataObj = {
+            name: document.querySelector('#name').value,
+            email: document.querySelector('#email').value,
+            password: document.querySelector('#password').value,
+            passwordConfirm: document.querySelector('#passwordConfirm').value,
+            gender: document.querySelector('.genderCb:checked').value,
+        };
+
+        register(dataObj);
+    })
+}
