@@ -12,6 +12,8 @@ const toTopBtn = document.querySelector('#toTopBtn');
 const loginForm = document.querySelector('.loginForm');
 const LogoutBtn = document.querySelector('#logout');
 const registerForm = document.querySelector('.registerForm');
+const addBookBtn = document.querySelector('#addBookBtn');
+const addBookForm = document.querySelector('.addBookForm');
 
 const headerOffsetTop = header.offsetTop;
 
@@ -115,4 +117,17 @@ if(registerForm) {
 
         register(dataObj);
     })
+}
+
+// Add New Book
+if(addBookBtn) {
+    addBookBtn.addEventListener('click', () => {
+        document.querySelector('.container').style.display = 'flex';
+    });
+}
+
+if(addBookForm) {
+    addBookForm.addEventListener('submit', () => {
+        document.querySelector('.container').style.display = 'none';
+    });
 }

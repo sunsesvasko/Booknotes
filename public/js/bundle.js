@@ -5570,6 +5570,8 @@ var toTopBtn = document.querySelector('#toTopBtn');
 var loginForm = document.querySelector('.loginForm');
 var LogoutBtn = document.querySelector('#logout');
 var registerForm = document.querySelector('.registerForm');
+var addBookBtn = document.querySelector('#addBookBtn');
+var addBookForm = document.querySelector('.addBookForm');
 var headerOffsetTop = header.offsetTop;
 
 // Window Events
@@ -5670,6 +5672,18 @@ if (registerForm) {
     (0, _register.register)(dataObj);
   });
 }
+
+// Add New Book
+if (addBookBtn) {
+  addBookBtn.addEventListener('click', function () {
+    document.querySelector('.container').style.display = 'flex';
+  });
+}
+if (addBookForm) {
+  addBookForm.addEventListener('submit', function () {
+    document.querySelector('.container').style.display = 'none';
+  });
+}
 },{"./login":"login.js","./register":"register.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -5695,7 +5709,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62408" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52584" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

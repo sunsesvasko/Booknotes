@@ -1,0 +1,22 @@
+extends base
+
+block append head
+    link(rel='stylesheet', href='/stylesheets/myBooks.css')
+
+block content
+    section.myBooksSection
+        .newBookContainer
+            h1 Add Book
+            img#addBookBtn(src="/uploads/add.png", alt="Add Icon")
+        .bookContainer 
+            h1 Treasury of Trueness
+            p - Vernon Howard
+            button.openBookBtn Open Book
+    .container 
+        form.addBookForm
+            h1 Create Book
+            label(for="title") Book Title
+            input(type="text" name='title' id='title' required) 
+            label(for="author") Book Author
+            input(type="text" name='author' id='author' required)
+            button#confirmBtn Confirm 
