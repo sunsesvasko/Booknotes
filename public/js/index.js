@@ -20,9 +20,9 @@ const headerOffsetTop = header.offsetTop;
 // Window Events
 addEventListener('resize', (e) => {
     if(openMenu) {
-        if(window.screen.width > 550) {
+        if(window.screen.width > 650) {
             openMenu.style.display = 'none';
-        } else if(window.screen.width < 550) {
+        } else if(window.screen.width < 650) {
             openMenu.style.display = 'block';
         }
     }

@@ -5577,9 +5577,9 @@ var headerOffsetTop = header.offsetTop;
 // Window Events
 addEventListener('resize', function (e) {
   if (openMenu) {
-    if (window.screen.width > 550) {
+    if (window.screen.width > 650) {
       openMenu.style.display = 'none';
-    } else if (window.screen.width < 550) {
+    } else if (window.screen.width < 650) {
       openMenu.style.display = 'block';
     }
   }
@@ -5709,7 +5709,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52584" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57421" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
