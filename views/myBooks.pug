@@ -1,5 +1,11 @@
 extends base
 
+mixin book(title, author)
+    .bookContainer 
+        h1 #{title}
+        p - #{author}
+        button.openBookBtn Open Book
+
 block append head
     link(rel='stylesheet', href='/stylesheets/myBooks.css')
 
@@ -8,10 +14,8 @@ block content
         .newBookContainer
             h1 Add Book
             img#addBookBtn(src="/uploads/add.png", alt="Add Icon")
-        .bookContainer 
-            h1 Treasury of Trueness
-            p - Vernon Howard
-            button.openBookBtn Open Book
+        each book in books
+            +book(book.title, book.author)
     .container 
         form.addBookForm
             h1 Create Book

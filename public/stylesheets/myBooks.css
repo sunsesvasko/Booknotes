@@ -21,7 +21,7 @@
     border-radius: 1rem;
     justify-content: center;
 
-    background-color: pink;
+    background-color: white;
 }
 
 .newBookContainer:hover {
@@ -67,7 +67,7 @@
     justify-content: flex-start;
     border-radius: 1rem;
     
-    background-color: coral;
+    background-color: #9f754d;
 }
 
 .bookContainer:hover {
