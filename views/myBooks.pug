@@ -19,8 +19,9 @@ block content
     .container 
         form.addBookForm
             h1 Create Book
+            span#closeWindow X
             label(for="title") Book Title
-            input(type="text" name='title' id='title' required) 
+            input#bookTitle(type="text" name='title' required) 
             label(for="author") Book Author
-            input(type="text" name='author' id='author' required)
+            input#bookAuthor(type="text" name='author' required)
             button#confirmBtn Confirm 

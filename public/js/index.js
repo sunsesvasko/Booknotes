@@ -1,5 +1,6 @@
 import { login, logout } from './login';
 import { register } from './register';
+import { createBook } from './createBook';
 
 const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
@@ -127,7 +128,14 @@ if(addBookBtn) {
 }
 
 if(addBookForm) {
-    addBookForm.addEventListener('submit', () => {
+    addBookForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.querySelector('#bookTitle').value;
+        const author = document.querySelector('#bookAuthor').value;
+        createBook(title, author);
+    });
+
+    document.querySelector('#closeWindow').addEventListener('click', () => {
         document.querySelector('.container').style.display = 'none';
     });
 }

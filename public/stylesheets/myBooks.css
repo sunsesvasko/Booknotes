@@ -110,6 +110,7 @@
     display: flex;
     border: 1px solid black;
     padding: 2.5rem 2rem;
+    position: relative;
     box-shadow: 0px 5px 10px 0px rgba(0,0,0, 0.25);
     align-items: center;
     border-radius: 4px;
@@ -120,12 +121,31 @@
 
 .addBookForm h1 {
     font-size: 2rem;
+    user-select: none;
     margin-bottom: 2rem;
+}
+
+#closeWindow {
+    top: 1rem;
+    right: 1rem;
+    position: absolute;
+    font-size: 1.5rem;
+    user-select: none;
+}
+
+#closeWindow:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#closeWindow:active {
+    transform: translateY(4px);
 }
 
 .addBookForm label {
     width: 100%;
     font-weight: 300;
+    user-select: none;
 }
 
 .addBookForm input {
