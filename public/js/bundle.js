@@ -5589,7 +5589,7 @@ var createBook = exports.createBook = /*#__PURE__*/function () {
             alert('Book added successfully!');
             window.setTimeout(function () {
               location.reload();
-            }, 1000);
+            }, 100);
           }
           _context.next = 10;
           break;

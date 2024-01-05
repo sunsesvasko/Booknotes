@@ -15,7 +15,7 @@ export const createBook = async(title, author) => {
             alert('Book added successfully!');
             window.setTimeout(() => {
                 location.reload();
-            }, 1000)
+            }, 100)
         }
     } catch(err) {
         console.log(err.response.data.message);
