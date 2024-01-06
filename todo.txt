@@ -1,10 +1,7 @@
 === PRIORITY TO-DO LIST ===
-* Create my books page
-+ Design done
-- Make it actually work
-- Add an option to close the 'Create Book' window
-
+* Create a Book Page
 * Create a profile Page
+
 
 === TO-DO LIST eventually ===
 1. Add an Error Page
