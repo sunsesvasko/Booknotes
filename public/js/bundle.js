@@ -5626,6 +5626,7 @@ var LogoutBtn = document.querySelector('#logout');
 var registerForm = document.querySelector('.registerForm');
 var addBookBtn = document.querySelector('#addBookBtn');
 var addBookForm = document.querySelector('.addBookForm');
+var openBookBtns = document.querySelectorAll('.openBookBtn');
 var headerOffsetTop = header.offsetTop;
 
 // Window Events
@@ -5742,6 +5743,16 @@ if (addBookForm) {
   });
   document.querySelector('#closeWindow').addEventListener('click', function () {
     document.querySelector('.container').style.display = 'none';
+  });
+}
+
+// Open Book Buttons
+if (openBookBtns.length > 0) {
+  openBookBtns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      var bookTitle = e.target.parentElement.firstElementChild.textContent;
+      window.location.assign("/books/".concat(bookTitle));
+    });
   });
 }
 },{"./login":"login.js","./register":"register.js","./createBook":"createBook.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

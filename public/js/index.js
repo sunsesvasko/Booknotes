@@ -15,6 +15,7 @@ const LogoutBtn = document.querySelector('#logout');
 const registerForm = document.querySelector('.registerForm');
 const addBookBtn = document.querySelector('#addBookBtn');
 const addBookForm = document.querySelector('.addBookForm');
+const openBookBtns = document.querySelectorAll('.openBookBtn');
 
 const headerOffsetTop = header.offsetTop;
 
@@ -138,4 +139,14 @@ if(addBookForm) {
     document.querySelector('#closeWindow').addEventListener('click', () => {
         document.querySelector('.container').style.display = 'none';
     });
+}
+
+// Open Book Buttons
+if(openBookBtns.length > 0) {
+    openBookBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const bookTitle = e.target.parentElement.firstElementChild.textContent;
+            window.location.assign(`/books/${bookTitle}`);
+        })
+    })
 }
