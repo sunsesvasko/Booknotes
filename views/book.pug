@@ -1,5 +1,11 @@
 extends base
 
+mixin note(title, description)
+        .noteContainer 
+            h1 #{title}
+            p #{description}
+            button.openNoteBtn Open Note
+
 block append head
     link(rel='stylesheet' href='/stylesheets/book.css')
     title #{title}
@@ -21,10 +27,8 @@ block content
                 .newNoteContainer
                     h1 Add Note
                     img#addNoteBtn(src="/uploads/add.png", alt="Add Icon")
-                .noteContainer 
-                    h1 Time
-                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui repellendus.
-                    button.openNoteBtn Open Note
+                each note in book.notes
+                    +note(note.title, note.description)
             .quotes
             .container 
                 form.addNoteForm

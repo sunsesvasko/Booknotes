@@ -197,6 +197,7 @@ body {
 .noteContainer p {
     font-style: italic;
     text-align: center;
+    user-select: none;
 }
 
 .openNoteBtn {
