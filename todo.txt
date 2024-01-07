@@ -1,5 +1,5 @@
 === PRIORITY TO-DO LIST ===
-* Create a Book Page
+* Create Note & Quote Model and etc.
 * Create a profile Page
 
 
