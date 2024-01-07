@@ -185,6 +185,7 @@ if(addNoteForm) {
     addNoteForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const title = document.querySelector('#noteTitle').value;
+        const description = document.querySelector('#noteDescription').value;
         // createBook(title, author);
     });
 

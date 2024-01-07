@@ -5788,6 +5788,7 @@ if (addNoteForm) {
   addNoteForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var title = document.querySelector('#noteTitle').value;
+    var description = document.querySelector('#noteDescription').value;
     // createBook(title, author);
   });
   document.querySelector('#closeWindow').addEventListener('click', function () {
