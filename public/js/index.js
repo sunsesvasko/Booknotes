@@ -194,5 +194,5 @@ if(addNoteForm) {
     });
 }
 
-const bookName = window.location.pathname.split('/')[2].split('%20').join(' ');
-console.log(bookName);
+// const bookName = window.location.pathname.split('/')[2].split('%20').join(' ');
+// console.log(bookName);

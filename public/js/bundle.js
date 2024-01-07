@@ -5795,8 +5795,9 @@ if (addNoteForm) {
     document.querySelector('.container').style.display = 'none';
   });
 }
-var bookName = window.location.pathname.split('/')[2].split('%20').join(' ');
-console.log(bookName);
+
+// const bookName = window.location.pathname.split('/')[2].split('%20').join(' ');
+// console.log(bookName);
 },{"./login":"login.js","./register":"register.js","./createBook":"createBook.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
