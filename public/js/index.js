@@ -16,6 +16,8 @@ const registerForm = document.querySelector('.registerForm');
 const addBookBtn = document.querySelector('#addBookBtn');
 const addBookForm = document.querySelector('.addBookForm');
 const openBookBtns = document.querySelectorAll('.openBookBtn');
+const openNotes = document.querySelector('#notes');
+const openQuotes = document.querySelector('#quotes');
 
 const headerOffsetTop = header.offsetTop;
 
@@ -150,3 +152,50 @@ if(openBookBtns.length > 0) {
         })
     })
 }
+
+// Open Notes OR Quotes Button
+if(openNotes) {
+    openNotes.addEventListener('click', () => {
+        const rightContainer = document.querySelector('.rightContainer');
+
+        // Check if the container already has a child and if so, remove it
+        if(rightContainer.firstElementChild) {
+            if(rightContainer.firstElementChild.classList.contains('quotes')) {
+                rightContainer.removeChild(rightContainer.firstElementChild);
+            }
+        }
+
+        // If the container is empty, add the child
+        if(!rightContainer.hasChildNodes()) {
+            const element = document.createElement("div");
+            element.classList.add('notes')
+            rightContainer.insertAdjacentElement('afterbegin', element);
+        }
+        
+        console.log(rightContainer);
+    });
+}
+
+if(openQuotes) {
+    openQuotes.addEventListener('click', () => {
+        const rightContainer = document.querySelector('.rightContainer');
+
+        // Check if the container already has a child and if so, remove it
+        if(rightContainer.firstElementChild) {
+            if(rightContainer.firstElementChild.classList.contains('notes')) {
+                rightContainer.removeChild(rightContainer.firstElementChild);
+            }
+        }
+
+        // If the container is empty, add the child
+        if(!rightContainer.hasChildNodes()) {
+            const element = document.createElement("div");
+            element.classList.add('quotes')
+            rightContainer.insertAdjacentElement('afterbegin', element);
+        }
+        
+        console.log(rightContainer);
+    })
+}
+
+// 

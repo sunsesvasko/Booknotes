@@ -1,0 +1,108 @@
+
+
+/* Main Container */
+
+.mainContainer {
+    width: 100%;
+    height: 95.35vh;
+    display: flex;
+    /* background-color: lightblue; */
+}
+
+/* Left Container */
+
+.leftContainer {
+    gap: 3rem;
+    width: 250px;
+    color: white;
+    display: flex;
+    padding: 2rem 1rem;
+    position: relative;
+    flex-wrap: wrap;
+    border-right: 1px solid black;
+    flex-direction: column;
+    background-color: #9f754d;
+}
+
+.nameAndAuthor {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nameAndAuthor h1 {
+    text-align: center;
+    font-size: 2rem;
+    user-select: none;
+}
+
+.nameAndAuthor p {
+    font-size: 1.25rem;
+    user-select: none;
+}
+
+.tabsContainer {
+    gap: 0.25rem;
+    display: flex;
+    padding: 0rem 1rem;
+    flex-direction: column;
+}
+
+.tabsContainer li a {
+    display: inline-block;
+    font-size: 1.5rem;
+    user-select: none;
+}
+
+.tabsContainer li a::after {
+    display: block;
+    content: '';
+    border-bottom: 2px solid black;
+    transform: scaleX(0);
+    transform-origin: 0% 50%;
+    transition: transform 250ms ease-in-out;
+}
+
+.tabsContainer li a:hover {
+    cursor: pointer;
+}
+
+.tabsContainer li a:hover::after {
+    transform: scaleX(1);
+}
+
+.tabsContainer li a:active {
+    transform: translateY(4px);
+}
+
+#deleteBook {
+    left: 4.75rem;
+    border: none;
+    bottom: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    position: absolute;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, .25);
+    user-select: none;
+    border-radius: 5px;
+    background-color: red;
+}
+
+#deleteBook:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+#deleteBook:active {
+    transform: translateY(4px);
+}
+
+/* Right Container */
+
+.rightContainer {
+    width: 100%;
+    background-color: lightblue;
+}
+

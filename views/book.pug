@@ -5,4 +5,16 @@ block append head
     title #{title}
 
 block content
-    h1 #{book.author}
+    .mainContainer
+        .leftContainer
+            .nameAndAuthor
+                h1 #{book.title}
+                p - #{book.author}
+            ul.tabsContainer
+                li 
+                    a#notes Notes
+                li 
+                    a#quotes Quotes
+            button#deleteBook Delete Book
+        .rightContainer
+        

@@ -5627,6 +5627,8 @@ var registerForm = document.querySelector('.registerForm');
 var addBookBtn = document.querySelector('#addBookBtn');
 var addBookForm = document.querySelector('.addBookForm');
 var openBookBtns = document.querySelectorAll('.openBookBtn');
+var openNotes = document.querySelector('#notes');
+var openQuotes = document.querySelector('#quotes');
 var headerOffsetTop = header.offsetTop;
 
 // Window Events
@@ -5755,6 +5757,50 @@ if (openBookBtns.length > 0) {
     });
   });
 }
+
+// Open Notes OR Quotes Button
+if (openNotes) {
+  openNotes.addEventListener('click', function () {
+    var rightContainer = document.querySelector('.rightContainer');
+
+    // Check if the container already has a child and if so, remove it
+    if (rightContainer.firstElementChild) {
+      if (rightContainer.firstElementChild.classList.contains('quotes')) {
+        rightContainer.removeChild(rightContainer.firstElementChild);
+      }
+    }
+
+    // If the container is empty, add the child
+    if (!rightContainer.hasChildNodes()) {
+      var element = document.createElement("div");
+      element.classList.add('notes');
+      rightContainer.insertAdjacentElement('afterbegin', element);
+    }
+    console.log(rightContainer);
+  });
+}
+if (openQuotes) {
+  openQuotes.addEventListener('click', function () {
+    var rightContainer = document.querySelector('.rightContainer');
+
+    // Check if the container already has a child and if so, remove it
+    if (rightContainer.firstElementChild) {
+      if (rightContainer.firstElementChild.classList.contains('notes')) {
+        rightContainer.removeChild(rightContainer.firstElementChild);
+      }
+    }
+
+    // If the container is empty, add the child
+    if (!rightContainer.hasChildNodes()) {
+      var element = document.createElement("div");
+      element.classList.add('quotes');
+      rightContainer.insertAdjacentElement('afterbegin', element);
+    }
+    console.log(rightContainer);
+  });
+}
+
+//
 },{"./login":"login.js","./register":"register.js","./createBook":"createBook.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -5780,7 +5826,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51037" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55422" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
