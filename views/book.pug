@@ -16,5 +16,21 @@ block content
                 li 
                     a#quotes Quotes
             button#deleteBook Delete Book
-        .rightContainer
+        .rightContainer 
+            .notes
+                .newNoteContainer
+                    h1 Add Note
+                    img#addNoteBtn(src="/uploads/add.png", alt="Add Icon")
+                .noteContainer 
+                    h1 Time
+                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui repellendus.
+                    button.openNoteBtn Open Note
+            .quotes
+            .container 
+                form.addNoteForm
+                    h1 Create Note
+                    span#closeWindow X
+                    label(for="title") Note Title
+                    input#noteTitle(type="text" name='title' required) 
+                    button#confirmBtn Confirm 
         

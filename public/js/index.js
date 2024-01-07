@@ -18,6 +18,8 @@ const addBookForm = document.querySelector('.addBookForm');
 const openBookBtns = document.querySelectorAll('.openBookBtn');
 const openNotes = document.querySelector('#notes');
 const openQuotes = document.querySelector('#quotes');
+const addNoteBtn = document.querySelector('#addNoteBtn');
+const addNoteForm = document.querySelector('.addNoteForm');
 
 const headerOffsetTop = header.offsetTop;
 
@@ -156,46 +158,37 @@ if(openBookBtns.length > 0) {
 // Open Notes OR Quotes Button
 if(openNotes) {
     openNotes.addEventListener('click', () => {
-        const rightContainer = document.querySelector('.rightContainer');
-
-        // Check if the container already has a child and if so, remove it
-        if(rightContainer.firstElementChild) {
-            if(rightContainer.firstElementChild.classList.contains('quotes')) {
-                rightContainer.removeChild(rightContainer.firstElementChild);
-            }
-        }
-
-        // If the container is empty, add the child
-        if(!rightContainer.hasChildNodes()) {
-            const element = document.createElement("div");
-            element.classList.add('notes')
-            rightContainer.insertAdjacentElement('afterbegin', element);
-        }
-        
-        console.log(rightContainer);
-    });
+        const notes = document.querySelector('.notes');
+        const quotes = document.querySelector('.quotes');
+        notes.style.display = 'flex';
+        quotes.style.display = 'none';
+    })
 }
 
 if(openQuotes) {
     openQuotes.addEventListener('click', () => {
-        const rightContainer = document.querySelector('.rightContainer');
-
-        // Check if the container already has a child and if so, remove it
-        if(rightContainer.firstElementChild) {
-            if(rightContainer.firstElementChild.classList.contains('notes')) {
-                rightContainer.removeChild(rightContainer.firstElementChild);
-            }
-        }
-
-        // If the container is empty, add the child
-        if(!rightContainer.hasChildNodes()) {
-            const element = document.createElement("div");
-            element.classList.add('quotes')
-            rightContainer.insertAdjacentElement('afterbegin', element);
-        }
-        
-        console.log(rightContainer);
+        const notes = document.querySelector('.notes');
+        const quotes = document.querySelector('.quotes');
+        notes.style.display = 'none';  
+        quotes.style.display = 'flex';  
     })
 }
 
-// 
+// Add New Note
+if(addNoteBtn) {
+    addNoteBtn.addEventListener('click', () => {
+        document.querySelector('.container').style.display = 'flex';
+    });
+}
+
+if(addNoteForm) {
+    addNoteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = document.querySelector('#noteTitle').value;
+        // createBook(title, author);
+    });
+
+    document.querySelector('#closeWindow').addEventListener('click', () => {
+        document.querySelector('.container').style.display = 'none';
+    });
+}

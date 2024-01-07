@@ -104,6 +104,19 @@
 }
 
 /* Add Book Menu Overlay */
+
+.container {
+    top: 60px;
+    left: 0px;
+    width: 100vw;
+    height: 95.35vh;
+    display: none;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .addBookForm {
     width: 500px;
     height: auto;
@@ -177,17 +190,4 @@
 
 #confirmBtn:active {
     transform: translateY(4px);
-}
-
-/* test */
-.container {
-    top: 60px;
-    left: 0px;
-    width: 100vw;
-    height: 95.35vh;
-    display: none;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
 }

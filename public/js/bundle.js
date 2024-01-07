@@ -5629,6 +5629,8 @@ var addBookForm = document.querySelector('.addBookForm');
 var openBookBtns = document.querySelectorAll('.openBookBtn');
 var openNotes = document.querySelector('#notes');
 var openQuotes = document.querySelector('#quotes');
+var addNoteBtn = document.querySelector('#addNoteBtn');
+var addNoteForm = document.querySelector('.addNoteForm');
 var headerOffsetTop = header.offsetTop;
 
 // Window Events
@@ -5761,46 +5763,37 @@ if (openBookBtns.length > 0) {
 // Open Notes OR Quotes Button
 if (openNotes) {
   openNotes.addEventListener('click', function () {
-    var rightContainer = document.querySelector('.rightContainer');
-
-    // Check if the container already has a child and if so, remove it
-    if (rightContainer.firstElementChild) {
-      if (rightContainer.firstElementChild.classList.contains('quotes')) {
-        rightContainer.removeChild(rightContainer.firstElementChild);
-      }
-    }
-
-    // If the container is empty, add the child
-    if (!rightContainer.hasChildNodes()) {
-      var element = document.createElement("div");
-      element.classList.add('notes');
-      rightContainer.insertAdjacentElement('afterbegin', element);
-    }
-    console.log(rightContainer);
+    var notes = document.querySelector('.notes');
+    var quotes = document.querySelector('.quotes');
+    notes.style.display = 'flex';
+    quotes.style.display = 'none';
   });
 }
 if (openQuotes) {
   openQuotes.addEventListener('click', function () {
-    var rightContainer = document.querySelector('.rightContainer');
-
-    // Check if the container already has a child and if so, remove it
-    if (rightContainer.firstElementChild) {
-      if (rightContainer.firstElementChild.classList.contains('notes')) {
-        rightContainer.removeChild(rightContainer.firstElementChild);
-      }
-    }
-
-    // If the container is empty, add the child
-    if (!rightContainer.hasChildNodes()) {
-      var element = document.createElement("div");
-      element.classList.add('quotes');
-      rightContainer.insertAdjacentElement('afterbegin', element);
-    }
-    console.log(rightContainer);
+    var notes = document.querySelector('.notes');
+    var quotes = document.querySelector('.quotes');
+    notes.style.display = 'none';
+    quotes.style.display = 'flex';
   });
 }
 
-//
+// Add New Note
+if (addNoteBtn) {
+  addNoteBtn.addEventListener('click', function () {
+    document.querySelector('.container').style.display = 'flex';
+  });
+}
+if (addNoteForm) {
+  addNoteForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var title = document.querySelector('#noteTitle').value;
+    // createBook(title, author);
+  });
+  document.querySelector('#closeWindow').addEventListener('click', function () {
+    document.querySelector('.container').style.display = 'none';
+  });
+}
 },{"./login":"login.js","./register":"register.js","./createBook":"createBook.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -5826,7 +5819,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55422" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64348" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
