@@ -10,7 +10,17 @@ const bookSchema = new mongoose.Schema({
         type: String,
         required: [true, 'A book must have an author.']
     }
+}, {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+    id: false,
 });
+
+bookSchema.virtual('notes', {
+    ref: 'Note',
+    foreignField: 'book',
+    localField: '_id'
+})
 
 const Book = mongoose.model('Book', bookSchema);
 

@@ -193,3 +193,6 @@ if(addNoteForm) {
         document.querySelector('.container').style.display = 'none';
     });
 }
+
+const bookName = window.location.pathname.split('/')[2].split('%20').join(' ');
+console.log(bookName);
