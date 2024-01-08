@@ -5687,6 +5687,8 @@ var openNotes = document.querySelector('#notes');
 var openQuotes = document.querySelector('#quotes');
 var addNoteBtn = document.querySelector('#addNoteBtn');
 var addNoteForm = document.querySelector('.addNoteForm');
+var addQuoteBtn = document.querySelector('#addQuoteBtn');
+var addQuoteForm = document.querySelector('.addQuoteForm');
 var headerOffsetTop = header.offsetTop;
 
 // Window Events
@@ -5838,6 +5840,7 @@ if (openQuotes) {
 if (addNoteBtn) {
   addNoteBtn.addEventListener('click', function () {
     document.querySelector('.container').style.display = 'flex';
+    document.querySelector('.addNoteForm').style.display = 'flex';
   });
 }
 if (addNoteForm) {
@@ -5848,13 +5851,34 @@ if (addNoteForm) {
     var book = document.querySelector('.nameAndAuthor').firstElementChild.dataset.bookid;
     (0, _createNote.createNote)(title, description, book);
   });
-  document.querySelector('#closeWindow').addEventListener('click', function () {
+  document.querySelector('#closeNoteWindow').addEventListener('click', function () {
     document.querySelector('.container').style.display = 'none';
+    document.querySelector('.addNoteForm').style.display = 'none';
   });
 }
 
-// const bookName = window.location.pathname.split('/')[2].split('%20').join(' ');
-// console.log(bookName);
+// Add New Quote
+
+if (addQuoteBtn) {
+  addQuoteBtn.addEventListener('click', function () {
+    document.querySelector('.container').style.display = 'flex';
+    document.querySelector('.addQuoteForm').style.display = 'flex';
+  });
+}
+if (addQuoteForm) {
+  addQuoteForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    // CHANGES FROM NOTE > QUOTE
+    var quote = document.querySelector('#quoteContent').value;
+    var quotee = document.querySelector('#quotee').value;
+    var book = document.querySelector('.nameAndAuthor').firstElementChild.dataset.bookid;
+    // createNote(title, description, book);
+  });
+  document.querySelector('#closeQuoteWindow').addEventListener('click', function () {
+    document.querySelector('.container').style.display = 'none';
+    document.querySelector('.addQuoteForm').style.display = 'none';
+  });
+}
 },{"./login":"login.js","./register":"register.js","./createBook":"createBook.js","./createNote":"createNote.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

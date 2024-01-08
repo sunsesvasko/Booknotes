@@ -30,13 +30,28 @@ block content
                 each note in book.notes
                     +note(note.title, note.description)
             .quotes
+                .newQuoteContainer
+                    h1 Add Quote
+                    img#addQuoteBtn(src="/uploads/add.png", alt="Add Icon")
+                .quoteContainer 
+                    p "True bravery is shown by performing without witness what one might be capable of doing before all the world."
+                    p - La Rochefoucauld
+                    //- button.openQuoteBtn Open Quote
             .container 
                 form.addNoteForm
                     h1 Create Note
-                    span#closeWindow X
+                    span#closeNoteWindow X
                     label(for="title") Note Title
                     input#noteTitle(type="text" name='title' required) 
                     label(for="description") Note Description
                     input#noteDescription(type="text" name='description' required) 
+                    button#confirmBtn Confirm 
+                form.addQuoteForm
+                    h1 Create Quote
+                    span#closeQuoteWindow X
+                    label(for="quote") Quote Content
+                    input#quoteContent(type="text" name='quote' required) 
+                    label(for="quotee") Quotee
+                    input#quotee(type="text" name='quotee' required) 
                     button#confirmBtn Confirm 
         

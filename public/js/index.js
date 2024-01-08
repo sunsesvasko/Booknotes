@@ -21,6 +21,8 @@ const openNotes = document.querySelector('#notes');
 const openQuotes = document.querySelector('#quotes');
 const addNoteBtn = document.querySelector('#addNoteBtn');
 const addNoteForm = document.querySelector('.addNoteForm');
+const addQuoteBtn = document.querySelector('#addQuoteBtn');
+const addQuoteForm = document.querySelector('.addQuoteForm');
 
 const headerOffsetTop = header.offsetTop;
 
@@ -179,6 +181,7 @@ if(openQuotes) {
 if(addNoteBtn) {
     addNoteBtn.addEventListener('click', () => {
         document.querySelector('.container').style.display = 'flex';
+        document.querySelector('.addNoteForm').style.display = 'flex';
     });
 }
 
@@ -191,10 +194,33 @@ if(addNoteForm) {
         createNote(title, description, book);
     });
 
-    document.querySelector('#closeWindow').addEventListener('click', () => {
+    document.querySelector('#closeNoteWindow').addEventListener('click', () => {
         document.querySelector('.container').style.display = 'none';
+        document.querySelector('.addNoteForm').style.display = 'none';
     });
 }
 
-// const bookName = window.location.pathname.split('/')[2].split('%20').join(' ');
-// console.log(bookName);
+// Add New Quote
+
+if(addQuoteBtn) {
+    addQuoteBtn.addEventListener('click', () => {
+        document.querySelector('.container').style.display = 'flex';
+        document.querySelector('.addQuoteForm').style.display = 'flex';
+    });
+}
+
+if(addQuoteForm) {
+    addQuoteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // CHANGES FROM NOTE > QUOTE
+        const quote = document.querySelector('#quoteContent').value;
+        const quotee = document.querySelector('#quotee').value;
+        const book = document.querySelector('.nameAndAuthor').firstElementChild.dataset.bookid;
+        // createNote(title, description, book);
+    });
+
+    document.querySelector('#closeQuoteWindow').addEventListener('click', () => {
+        document.querySelector('.container').style.display = 'none';
+        document.querySelector('.addQuoteForm').style.display = 'none';
+    });
+}
