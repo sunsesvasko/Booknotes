@@ -14,7 +14,7 @@ block content
     .mainContainer
         .leftContainer
             .nameAndAuthor
-                h1 #{book.title}
+                h1(data-bookId=book._id) #{book.title}
                 p - #{book.author}
             ul.tabsContainer
                 li 

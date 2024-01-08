@@ -1,6 +1,7 @@
 import { login, logout } from './login';
 import { register } from './register';
 import { createBook } from './createBook';
+import { createNote } from './createNote';
 
 const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
@@ -186,7 +187,8 @@ if(addNoteForm) {
         e.preventDefault();
         const title = document.querySelector('#noteTitle').value;
         const description = document.querySelector('#noteDescription').value;
-        // createBook(title, author);
+        const book = document.querySelector('.nameAndAuthor').firstElementChild.dataset.bookid;
+        createNote(title, description, book);
     });
 
     document.querySelector('#closeWindow').addEventListener('click', () => {
