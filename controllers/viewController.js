@@ -38,7 +38,7 @@ exports.getBookPage = catchAsync(async(req, res, next) => {
         path: 'quotes',
         select: 'quote quotee -book -_id'
     }).select('title author');
-    console.log(book);
+    // console.log(book);
 
     res.status(200).render('book', {
         title: book.title,

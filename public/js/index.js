@@ -2,6 +2,7 @@ import { login, logout } from './login';
 import { register } from './register';
 import { createBook } from './createBook';
 import { createNote } from './createNote';
+import { createQuote } from './createQuote';
 
 const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
@@ -212,11 +213,24 @@ if(addQuoteBtn) {
 if(addQuoteForm) {
     addQuoteForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        // CHANGES FROM NOTE > QUOTE
         const quote = document.querySelector('#quoteContent').value;
         const quotee = document.querySelector('#quotee').value;
         const book = document.querySelector('.nameAndAuthor').firstElementChild.dataset.bookid;
-        // createNote(title, description, book);
+        if(quotee !== "") {
+            const data = {
+                quote,
+                quotee,
+                book
+            }
+            createQuote(data);
+        } 
+        if(quotee === "") {
+            const data = {
+                quote, 
+                book
+            }
+            createQuote(data)
+        } 
     });
 
     document.querySelector('#closeQuoteWindow').addEventListener('click', () => {

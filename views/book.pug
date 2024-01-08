@@ -6,6 +6,19 @@ mixin note(title, description)
             p #{description}
             button.openNoteBtn Open Note
 
+//- Only Quote, NO quoteE
+mixin quote1(quote)
+        .quoteContainer 
+            p "#{quote}"
+
+//- Quote AND QuoteE
+mixin quote2(quote, quotee)
+        .quoteContainer 
+            p "#{quote}"
+            p - #{quotee}
+
+
+
 block append head
     link(rel='stylesheet' href='/stylesheets/book.css')
     title #{title}
@@ -33,10 +46,11 @@ block content
                 .newQuoteContainer
                     h1 Add Quote
                     img#addQuoteBtn(src="/uploads/add.png", alt="Add Icon")
-                .quoteContainer 
-                    p "True bravery is shown by performing without witness what one might be capable of doing before all the world."
-                    p - La Rochefoucauld
-                    //- button.openQuoteBtn Open Quote
+                each quote in book.quotes
+                    if quote.quotee
+                        +quote2(quote.quote, quote.quotee)
+                    else
+                        +quote1(quote.quote)
             .container 
                 form.addNoteForm
                     h1 Create Note
@@ -52,6 +66,6 @@ block content
                     label(for="quote") Quote Content
                     input#quoteContent(type="text" name='quote' required) 
                     label(for="quotee") Quotee
-                    input#quotee(type="text" name='quotee' required) 
+                    input#quotee(type="text" name='quotee') 
                     button#confirmBtn Confirm 
         
