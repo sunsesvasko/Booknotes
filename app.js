@@ -9,6 +9,7 @@ const viewRoutes = require('./routes/viewRoutes');
 const userRoutes = require('./routes/userRoutes');
 const bookRoutes = require('./routes/bookRoutes');
 const noteRoutes = require('./routes/noteRoutes');
+const quoteRoutes = require('./routes/quoteRoutes');
 const globalErrorHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
 
@@ -36,6 +37,7 @@ app.use('/', viewRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/books', bookRoutes);
 app.use('/api/v1/notes', noteRoutes);
+app.use('/api/v1/quotes', quoteRoutes);
 
 // app.all('*', (req, res, next) => {
 //     next(new AppError(`Can't find ${req.originalUrl} on this server!`), 404);

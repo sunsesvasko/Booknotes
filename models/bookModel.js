@@ -20,7 +20,13 @@ bookSchema.virtual('notes', {
     ref: 'Note',
     foreignField: 'book',
     localField: '_id'
-})
+});
+
+bookSchema.virtual('quotes', {
+    ref: 'Quote',
+    foreignField: 'book',
+    localField: '_id'
+});
 
 const Book = mongoose.model('Book', bookSchema);
 
