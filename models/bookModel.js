@@ -28,6 +28,11 @@ bookSchema.virtual('quotes', {
     localField: '_id'
 });
 
+// QUERIES
+bookSchema.pre('deleteOne', function(doc) {
+    console.log(this.model);
+});
+
 const Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book;

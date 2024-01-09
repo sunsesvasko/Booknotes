@@ -34,7 +34,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ['Male', 'Female', 'Other'],
         required: [true, 'A user must have a gender.'],
-    }
+    },
+    books: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: 'Book'
+        }
+    ]
 });
 
 // === MIDDLEWARE === //

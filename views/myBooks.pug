@@ -13,7 +13,7 @@ block content
     section.myBooksSection
         .newBookContainer
             h1 Add Book
-            img#addBookBtn(src="/uploads/add.png", alt="Add Icon")
+            img#addBookBtn(src="/uploads/add.png", alt="Add Icon" data-userid=``)
         each book in books
             +book(book.title, book.author)
     .container 

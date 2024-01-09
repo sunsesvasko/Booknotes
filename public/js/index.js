@@ -3,6 +3,7 @@ import { register } from './register';
 import { createBook } from './createBook';
 import { createNote } from './createNote';
 import { createQuote } from './createQuote';
+import { deleteBook } from './deleteBook';
 
 const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
@@ -24,6 +25,7 @@ const addNoteBtn = document.querySelector('#addNoteBtn');
 const addNoteForm = document.querySelector('.addNoteForm');
 const addQuoteBtn = document.querySelector('#addQuoteBtn');
 const addQuoteForm = document.querySelector('.addQuoteForm');
+const deleteBookBtn = document.querySelector('#deleteBook');
 
 const headerOffsetTop = header.offsetTop;
 
@@ -141,7 +143,9 @@ if(addBookForm) {
         e.preventDefault();
         const title = document.querySelector('#bookTitle').value;
         const author = document.querySelector('#bookAuthor').value;
-        createBook(title, author);
+        const book = document.querySelector('.nameAndAuthor').firstElementChild.dataset.bookid;
+        console.log(book);
+        // createBook(title, author);
     });
 
     document.querySelector('#closeWindow').addEventListener('click', () => {
@@ -236,5 +240,12 @@ if(addQuoteForm) {
     document.querySelector('#closeQuoteWindow').addEventListener('click', () => {
         document.querySelector('.container').style.display = 'none';
         document.querySelector('.addQuoteForm').style.display = 'none';
+    });
+}
+
+if(deleteBookBtn) {
+    deleteBookBtn.addEventListener('click', () => {
+        const bookId = document.querySelector('.nameAndAuthor').firstElementChild.dataset.bookid;
+        deleteBook(bookId);
     });
 }
