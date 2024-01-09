@@ -1,8 +1,12 @@
 === PRIORITY TO-DO LIST ===
-* Create a profile Page
-
+* Be able to delete book (working now)
+* Be able to delete note
+* Be able to delete quote
+* Be able to open note & update them
+* Be able to open quote & update them
 
 === TO-DO LIST eventually ===
 1. Add an Error Page
 2. Add a Better Alert Feature
 3. Make contact form work
+4. Create a profile Page
