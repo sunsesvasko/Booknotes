@@ -30,7 +30,7 @@ bookSchema.virtual('quotes', {
 
 // QUERIES
 bookSchema.pre('deleteOne', function(doc) {
-    console.log(this.model);
+    console.log('HI FROM THE BOOK MODEL');
 });
 
 const Book = mongoose.model('Book', bookSchema);

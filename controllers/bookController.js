@@ -1,6 +1,6 @@
 const Book = require('../models/bookModel');
-const Note = require('../models/bookModel');
-const Quote = require('../models/bookModel');
+const Note = require('../models/noteModel');
+const Quote = require('../models/quoteModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
@@ -39,13 +39,8 @@ exports.createBook = catchAsync(async(req, res, next) => {
 
 exports.deleteBook = catchAsync(async(req, res, next) => {
     await Book.findByIdAndDelete(req.params.id);
-    // const book = await Book.findById(req.params.id).populate({
-    //     path: 'notes',
-    //     select: 'title'
-    // }).populate({
-    //     path: 'quotes',
-    //     select: 'title'
-    // });
+    await Note.deleteMany({ book: req.params.id });
+    await Quote.deleteMany({ book: req.params.id });
 
     res.status(204).json({
         status: 'success'
