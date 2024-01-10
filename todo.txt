@@ -1,11 +1,9 @@
 === PRIORITY TO-DO LIST ===
-* Be able to delete book (done)
 * Be able to delete note
 * Be able to delete quote
 * Be able to open note & update them 
 * Be able to open quote & update them
 * CREATE LINK BETWEEN USER & BOOK (next)
-* CREATE LINK BETWEEN BOOK & NOTES/QUOTES
 
 === TO-DO LIST eventually ===
 1. Add an Error Page

@@ -22,7 +22,8 @@ exports.getRegisterPage = (req, res) => {
 }
 
 exports.getMyBooksPage = catchAsync(async(req, res, next) => {
-    const allBooks = await Book.find();
+    const allBooks = await Book.find({ user: res.locals.user._id });
+    // console.log(res.locals.user);
 
     res.status(200).render('myBooks', {
         title: 'My Books Page',

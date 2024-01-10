@@ -27,7 +27,12 @@ exports.getAllBooks = catchAsync(async(req, res, next) => {
 });
 
 exports.createBook = catchAsync(async(req, res, next) => {
-    const newBook = await Book.create(req.body);
+    // const newBook = await Book.create(req.body);
+    const newBook = await Book.create({
+        title: req.body.title,
+        author: req.body.author,
+        user: res.locals.user._id
+    });
 
     res.status(201).json({
         status: 'success',

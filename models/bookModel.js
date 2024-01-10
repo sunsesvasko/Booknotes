@@ -9,6 +9,11 @@ const bookSchema = new mongoose.Schema({
     author: {
         type: String,
         required: [true, 'A book must have an author.']
+    },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: [true, 'A book must belong to a user']
     }
 }, {
     toJSON: { virtuals: true },
@@ -26,11 +31,6 @@ bookSchema.virtual('quotes', {
     ref: 'Quote',
     foreignField: 'book',
     localField: '_id'
-});
-
-// QUERIES
-bookSchema.pre('deleteOne', function(doc) {
-    console.log('HI FROM THE BOOK MODEL');
 });
 
 const Book = mongoose.model('Book', bookSchema);
