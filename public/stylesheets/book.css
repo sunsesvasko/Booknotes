@@ -167,6 +167,7 @@ body {
 
 .noteContainer {
     gap: 1rem;
+    color: white;
     width: 200px;
     height: 168px;
     border: 1px solid rgba(0, 0, 0, 0.5);
