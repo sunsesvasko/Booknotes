@@ -34,11 +34,12 @@ exports.getMyBooksPage = catchAsync(async(req, res, next) => {
 exports.getBookPage = catchAsync(async(req, res, next) => {
     const book = await Book.findOne({ title: req.params.title }).populate({
         path: 'notes',
-        select: 'title description content -book -_id'
+        select: 'title description content -book'
     }).populate({
         path: 'quotes',
         select: 'quote quotee -book -_id'
     }).select('title author');
+    // console.log(book.notes);
 
     res.status(200).render('book', {
         title: book.title,

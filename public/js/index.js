@@ -261,6 +261,14 @@ if(openNoteBtns.length > 0) {
         btn.addEventListener('click', (e) => {
             document.querySelector('.container').style.display = 'flex';
             document.querySelector('.openedNoteContainer').style.display = 'flex';
+
+            // currentNoteTitle = e.target.parentElement.firstElementChild.textContent;
+            // currentNoteDescription = e.target.parentElement.firstElementChild.nextElementSibling.textContent;
+            
+            // document.querySelector('#editNoteTitle').value = currentNoteTitle;
+            // document.querySelector('#editNoteDescription').value = currentNoteDescription;
+
+            // window.history.pushState({}, null, '/wow');
         });
     });
 
@@ -277,3 +285,5 @@ if(openNoteBtns.length > 0) {
 //         console.log(e.target);
 //     })
 // }
+
+console.log(window.location.pathname);
