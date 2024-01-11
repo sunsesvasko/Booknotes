@@ -26,8 +26,14 @@ const addNoteForm = document.querySelector('.addNoteForm');
 const addQuoteBtn = document.querySelector('#addQuoteBtn');
 const addQuoteForm = document.querySelector('.addQuoteForm');
 const deleteBookBtn = document.querySelector('#deleteBook');
+const openNoteBtns = document.querySelectorAll('.openNoteBtn');
+const closeEditNoteWindow = document.querySelector('#closeEditNoteWindow');
+const openedNoteContainer = document.querySelector('.openedNoteContainer');
 
 const headerOffsetTop = header.offsetTop;
+let currentNoteTitle = '';
+let currentNoteDescription = '';
+let currentNoteContent = '';
 
 // Window Events
 addEventListener('resize', (e) => {
@@ -249,3 +255,29 @@ if(deleteBookBtn) {
         deleteBook(bookId);
     });
 }
+
+if(openNoteBtns.length > 0) {
+    openNoteBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            document.querySelector('.container').style.display = 'flex';
+            document.querySelector('.openedNoteContainer').style.display = 'flex';
+            currentNoteTitle = e.target.parentElement.firstElementChild.textContent;
+            currentNoteDescription = e.target.parentElement.firstElementChild.nextElementSibling.textContent;
+            document.querySelector('#editNoteTitle').value = currentNoteTitle;
+            document.querySelector('#editNoteDescription').value = currentNoteDescription;
+        });
+    });
+
+    if(closeEditNoteWindow) {
+        closeEditNoteWindow.addEventListener('click', () => {
+            document.querySelector('.container').style.display = 'none';
+            document.querySelector('.openedNoteContainer').style.display = 'none';
+        })
+    }
+}
+
+// if(openedNoteContainer) {
+//     openedNoteContainer.addEventListener('click', (e) => {
+//         console.log(e.target);
+//     })
+// }

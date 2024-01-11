@@ -5793,7 +5793,13 @@ var addNoteForm = document.querySelector('.addNoteForm');
 var addQuoteBtn = document.querySelector('#addQuoteBtn');
 var addQuoteForm = document.querySelector('.addQuoteForm');
 var deleteBookBtn = document.querySelector('#deleteBook');
+var openNoteBtns = document.querySelectorAll('.openNoteBtn');
+var closeEditNoteWindow = document.querySelector('#closeEditNoteWindow');
+var openedNoteContainer = document.querySelector('.openedNoteContainer');
 var headerOffsetTop = header.offsetTop;
+var currentNoteTitle = '';
+var currentNoteDescription = '';
+var currentNoteContent = '';
 
 // Window Events
 addEventListener('resize', function (e) {
@@ -6004,6 +6010,30 @@ if (deleteBookBtn) {
     (0, _deleteBook.deleteBook)(bookId);
   });
 }
+if (openNoteBtns.length > 0) {
+  openNoteBtns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      document.querySelector('.container').style.display = 'flex';
+      document.querySelector('.openedNoteContainer').style.display = 'flex';
+      currentNoteTitle = e.target.parentElement.firstElementChild.textContent;
+      currentNoteDescription = e.target.parentElement.firstElementChild.nextElementSibling.textContent;
+      document.querySelector('#editNoteTitle').value = currentNoteTitle;
+      document.querySelector('#editNoteDescription').value = currentNoteDescription;
+    });
+  });
+  if (closeEditNoteWindow) {
+    closeEditNoteWindow.addEventListener('click', function () {
+      document.querySelector('.container').style.display = 'none';
+      document.querySelector('.openedNoteContainer').style.display = 'none';
+    });
+  }
+}
+
+// if(openedNoteContainer) {
+//     openedNoteContainer.addEventListener('click', (e) => {
+//         console.log(e.target);
+//     })
+// }
 },{"./login":"login.js","./register":"register.js","./createBook":"createBook.js","./createNote":"createNote.js","./createQuote":"createQuote.js","./deleteBook":"deleteBook.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -6029,7 +6059,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49679" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64376" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

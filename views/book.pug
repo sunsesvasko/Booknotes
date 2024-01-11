@@ -68,4 +68,15 @@ block content
                     label(for="quotee") Quotee
                     input#quotee(type="text" name='quotee') 
                     button#confirmBtn Confirm 
-        
+                form.openedNoteContainer
+                    h1 Edit Note
+                    span#closeEditNoteWindow X
+                    label(for="title") Note Title
+                    input#editNoteTitle(type="text" name='title' required) 
+                    label(for="description") Note Description
+                    input#editNoteDescription(type="text" name='description' required)
+                    label(for='content') Note Content 
+                    textarea#editNoteContent(name="content", cols="65", rows="20")  
+                    button#confirmEditBtn Confirm Edit 
+
+            
