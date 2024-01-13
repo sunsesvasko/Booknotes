@@ -1,13 +1,14 @@
 import axios from 'axios';
 
-export const createBook = async(title, author) => {
+export const createBook = async(title, author, user) => {
     try {
         const res = await axios({
             method: 'POST',
             url: '/api/v1/books/',
             data: {
                 title,
-                author
+                author,
+                user
             }
         });
 

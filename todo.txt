@@ -1,8 +1,8 @@
 === PRIORITY TO-DO LIST ===
-* Be able to delete note
-* Be able to delete quote
-* Be able to open note & update them 
-* Be able to open quote & update them
+* Be able to delete note (done)
+* Be able to delete quote 
+* Be able to open note & update them (done) 
+* Be able to open quote & update them (done)
 
 === TO-DO LIST eventually ===
 1. Add an Error Page
@@ -12,3 +12,6 @@
 5. Add Confirmation when user is deleting a book
 7. When you create a new note or quote, reload the page but keep the note/quote container visible
 8. Complete Code Optimization
+9. Edit README file
+10. Make a single js file for book, note & quote deletion instead of 3 separete js ones
+11. When you try to open a quote, if you click on the P it gives an error, fix it

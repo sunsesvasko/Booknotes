@@ -37,7 +37,7 @@ exports.getBookPage = catchAsync(async(req, res, next) => {
         select: 'title description content -book'
     }).populate({
         path: 'quotes',
-        select: 'quote quotee -book -_id'
+        select: 'quote quotee -book'
     }).select('title author');
     // console.log(book.notes);
 

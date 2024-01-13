@@ -6,17 +6,20 @@ mixin note(title, description, content, id)
             p #{description}
             p#noteContent #{content}
             button.openNoteBtn Open Note
+            img.deleteNote(src="/uploads/delete.png", alt="Delete Button")
 
 //- Only Quote, NO quoteE
-mixin quote1(quote)
-        .quoteContainer 
+mixin quote1(quote, id)
+        .quoteContainer(data-quoteid=id)
             p "#{quote}"
+            img.deleteQuote(src="/uploads/delete.png", alt="Delete Button")
 
 //- Quote AND QuoteE
-mixin quote2(quote, quotee)
-        .quoteContainer 
+mixin quote2(quote, quotee, id)
+        .quoteContainer(data-quoteid=id)
             p "#{quote}"
             p - #{quotee}
+            img.deleteQuote(src="/uploads/delete.png", alt="Delete Button")
 
 
 
@@ -49,9 +52,9 @@ block content
                     img#addQuoteBtn(src="/uploads/add.png", alt="Add Icon")
                 each quote in book.quotes
                     if quote.quotee
-                        +quote2(quote.quote, quote.quotee)
+                        +quote2(quote.quote, quote.quotee, quote._id)
                     else
-                        +quote1(quote.quote)
+                        +quote1(quote.quote, quote._id)
             .container 
                 form.addNoteForm
                     h1 Create Note
@@ -78,6 +81,14 @@ block content
                     input#editNoteDescription(type="text" name='description' required)
                     label(for='content') Note Content 
                     textarea#editNoteContent(name="content", cols="65", rows="20")  
-                    button#confirmEditBtn Confirm Edit 
+                    button.confirmEditBtn Confirm Edit 
+                form.openedQuoteContainer
+                    h1 Edit Quote
+                    span#closeEditQuoteWindow X
+                    label(for="quote") Quote Content
+                    input#editQuoteContent(type="text" name='quote' required) 
+                    label(for="quotee") Quotee
+                    input#editQuotee(type="text" name='quotee' required)
+                    button.confirmEditBtn Confirm Edit 
 
             

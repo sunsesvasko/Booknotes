@@ -1,10 +1,13 @@
 import { login, logout } from './login';
 import { register } from './register';
 import { createBook } from './createBook';
-import { createNote } from './createNote';
-import { createQuote } from './createQuote';
 import { deleteBook } from './deleteBook';
+import { createNote } from './createNote';
 import { editNote } from './editNote';
+import { deleteNote } from './deleteNote';
+import { createQuote } from './createQuote';
+import { editQuote } from './editQuote';
+import { deleteQuote } from './deleteQuote';
 
 const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
@@ -29,12 +32,19 @@ const addQuoteForm = document.querySelector('.addQuoteForm');
 const deleteBookBtn = document.querySelector('#deleteBook');
 const openNoteBtns = document.querySelectorAll('.openNoteBtn');
 const closeEditNoteWindow = document.querySelector('#closeEditNoteWindow');
+const closeEditQuoteWindow = document.querySelector('#closeEditQuoteWindow');
 const openedNoteContainer = document.querySelector('.openedNoteContainer');
+const deleteNoteBtns = document.querySelectorAll('.deleteNote');
+const deleteQuoteBtns = document.querySelectorAll('.deleteQuote');
+const quoteContainers = document.querySelectorAll('.quoteContainer');
+const openedQuoteContainer = document.querySelector('.openedQuoteContainer');
 
 const headerOffsetTop = header.offsetTop;
 let currentNoteTitle = '';
 let currentNoteDescription = '';
 let currentNoteContent = '';
+let currentQuoteContent = '';
+let currentQuotee = '';
 
 // Window Events
 addEventListener('resize', (e) => {
@@ -150,9 +160,8 @@ if(addBookForm) {
         e.preventDefault();
         const title = document.querySelector('#bookTitle').value;
         const author = document.querySelector('#bookAuthor').value;
-        const book = document.querySelector('.nameAndAuthor').firstElementChild.dataset.bookid;
-        console.log(book);
-        // createBook(title, author);
+
+        createBook(title, author);
     });
 
     document.querySelector('#closeWindow').addEventListener('click', () => {
@@ -250,6 +259,8 @@ if(addQuoteForm) {
     });
 }
 
+// Delete Book
+
 if(deleteBookBtn) {
     deleteBookBtn.addEventListener('click', () => {
         const bookId = document.querySelector('.nameAndAuthor').firstElementChild.dataset.bookid;
@@ -257,14 +268,16 @@ if(deleteBookBtn) {
     });
 }
 
+// Open Notes & Update Them
+
 if(openNoteBtns.length > 0) {
     openNoteBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             document.querySelector('.container').style.display = 'flex';
             openedNoteContainer.style.display = 'flex';
-            openedNoteContainer.dataset.noteid = document.querySelector('.noteContainer').dataset.noteid;
-
             const btnParent = e.target.parentElement;
+            
+            openedNoteContainer.dataset.noteid = btnParent.dataset.noteid;
 
             currentNoteTitle = btnParent.firstElementChild.textContent;
             currentNoteDescription = btnParent.firstElementChild.nextElementSibling.textContent;
@@ -273,8 +286,6 @@ if(openNoteBtns.length > 0) {
             document.querySelector('#editNoteTitle').value = currentNoteTitle;
             document.querySelector('#editNoteDescription').value = currentNoteDescription;
             document.querySelector('#editNoteContent').value = currentNoteContent;
-
-            // window.history.pushState({}, null, '/wow');
         });
     });
 
@@ -302,5 +313,78 @@ if(openedNoteContainer) {
 
         editNote(id, dataObj);
 
+    });
+}
+
+// Delete Notes
+if(deleteNoteBtns.length > 0) {
+    deleteNoteBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const result = window.confirm('Are you sure you want to delete this note?');
+
+            if(!result) return;
+            
+            const id = e.target.parentElement.dataset.noteid;
+
+            deleteNote(id);
+        });
+    });
+}
+
+// Open Quotes & Update Them
+if(quoteContainers.length > 0) {
+    quoteContainers.forEach(container => {
+        container.addEventListener('click', (e) => {
+            if(e.target.classList.contains('deleteQuote')) return;
+            if(e.target.tagName === 'P') return;
+
+            document.querySelector('.container').style.display = 'flex';
+            openedQuoteContainer.style.display = 'flex';
+            openedQuoteContainer.dataset.quoteid = e.target.dataset.quoteid;
+            
+            currentQuoteContent = e.target.firstElementChild.textContent.split('\"')[1];
+            if(e.target.firstElementChild.nextElementSibling) currentQuotee = e.target.firstElementChild.nextElementSibling.textContent.slice(2);
+
+            document.querySelector('#editQuoteContent').value = currentQuoteContent;
+            if(currentQuotee) document.querySelector('#editQuotee').value = currentQuotee;
+        })
+    })
+
+    if(closeEditQuoteWindow) {
+        closeEditQuoteWindow.addEventListener('click', () => {
+            document.querySelector('.container').style.display = 'none';
+            document.querySelector('.openedQuoteContainer').style.display = 'none';
+        })
+    }
+}
+
+if(openedQuoteContainer) {
+    openedQuoteContainer.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const id = openedQuoteContainer.dataset.quoteid;
+        const quote = document.querySelector('#editQuoteContent').value;
+        const quotee = document.querySelector('#editQuotee').value;
+
+        const dataObj = {
+            quote,
+            quotee
+        }
+
+        editQuote(id, dataObj);
+    });
+}
+
+// Delete Quotes
+if(deleteQuoteBtns.length > 0) {
+    deleteQuoteBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const result = window.confirm('Are you sure you want to delete this quote?');
+
+            if(!result) return;
+            
+            const id = e.target.parentElement.dataset.quoteid;
+
+            deleteQuote(id);
+        });
     });
 }
