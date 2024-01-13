@@ -1,9 +1,10 @@
 extends base
 
-mixin note(title, description, id)
+mixin note(title, description, content, id)
         .noteContainer(data-noteid=id)
             h1 #{title}
             p #{description}
+            p#noteContent #{content}
             button.openNoteBtn Open Note
 
 //- Only Quote, NO quoteE
@@ -41,7 +42,7 @@ block content
                     h1 Add Note
                     img#addNoteBtn(src="/uploads/add.png", alt="Add Icon")
                 each note in book.notes
-                    +note(note.title, note.description, note._id)
+                    +note(note.title, note.description, note.content, note._id)
             .quotes
                 .newQuoteContainer
                     h1 Add Quote

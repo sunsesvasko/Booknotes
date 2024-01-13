@@ -4,6 +4,7 @@ import { createBook } from './createBook';
 import { createNote } from './createNote';
 import { createQuote } from './createQuote';
 import { deleteBook } from './deleteBook';
+import { editNote } from './editNote';
 
 const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
@@ -260,13 +261,18 @@ if(openNoteBtns.length > 0) {
     openNoteBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             document.querySelector('.container').style.display = 'flex';
-            document.querySelector('.openedNoteContainer').style.display = 'flex';
+            openedNoteContainer.style.display = 'flex';
+            openedNoteContainer.dataset.noteid = document.querySelector('.noteContainer').dataset.noteid;
 
-            // currentNoteTitle = e.target.parentElement.firstElementChild.textContent;
-            // currentNoteDescription = e.target.parentElement.firstElementChild.nextElementSibling.textContent;
+            const btnParent = e.target.parentElement;
+
+            currentNoteTitle = btnParent.firstElementChild.textContent;
+            currentNoteDescription = btnParent.firstElementChild.nextElementSibling.textContent;
+            currentNoteContent = btnParent.firstElementChild.nextElementSibling.nextElementSibling.textContent;
             
-            // document.querySelector('#editNoteTitle').value = currentNoteTitle;
-            // document.querySelector('#editNoteDescription').value = currentNoteDescription;
+            document.querySelector('#editNoteTitle').value = currentNoteTitle;
+            document.querySelector('#editNoteDescription').value = currentNoteDescription;
+            document.querySelector('#editNoteContent').value = currentNoteContent;
 
             // window.history.pushState({}, null, '/wow');
         });
@@ -280,10 +286,21 @@ if(openNoteBtns.length > 0) {
     }
 }
 
-// if(openedNoteContainer) {
-//     openedNoteContainer.addEventListener('click', (e) => {
-//         console.log(e.target);
-//     })
-// }
+if(openedNoteContainer) {
+    openedNoteContainer.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const id = openedNoteContainer.dataset.noteid;
+        const title = document.querySelector('#editNoteTitle').value;
+        const description = document.querySelector('#editNoteDescription').value;
+        const content = document.querySelector('#editNoteContent').value;
 
-console.log(window.location.pathname);
+        const dataObj = {
+            title,
+            description,
+            content
+        };
+
+        editNote(id, dataObj);
+
+    });
+}
