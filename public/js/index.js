@@ -9,6 +9,7 @@ import { createQuote } from './createQuote';
 import { editQuote } from './editQuote';
 import { deleteQuote } from './deleteQuote';
 
+const myBooksBtn = document.querySelector('#books');
 const sections = document.querySelectorAll('section');
 const openMenu = document.querySelector('#openMenu');
 const closeMenu = document.querySelector('#closeMenu');
@@ -72,6 +73,26 @@ addEventListener('scroll', () => {
         else toTopBtn.style.visibility = 'hidden';   
     }
 })
+
+// My Books Page
+if(myBooksBtn) {
+    // Calculate available width and height
+    const navBar = 61;
+    const padding = 32;
+    const availableWidth = window.innerWidth - padding;
+    const availableHeight = (window.innerHeight - navBar) - padding;
+
+    // First row is always -1, because of the add note container
+    const docSize = 218; // 202px element and 16px padding from 'gap' between elements
+    const docsPerRow = Math.floor(availableWidth / docSize);
+    const totalRows = Math.floor(availableHeight/ docSize);
+
+    const totalPerPage = (docsPerRow * totalRows) - 1;
+    console.log(totalPerPage);
+    myBooksBtn.addEventListener('click', () => {
+        window.location.assign(`/books?page=1&limit=${totalPerPage}`);
+    })
+}
 
 // Hamburger Menu 
 if(openMenu) {
@@ -184,7 +205,7 @@ if(openBookBtns.length > 0) {
     const totalRows = Math.floor(availableHeight/ docSize);
 
     const totalPerPage = (docsPerRow * totalRows) - 1;
-    console.log(totalPerPage);
+    // console.log(totalPerPage);
 
     openBookBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {

@@ -22,8 +22,16 @@ exports.getRegisterPage = (req, res) => {
 }
 
 exports.getMyBooksPage = catchAsync(async(req, res, next) => {
-    const allBooks = await Book.find({ user: res.locals.user._id });
+    let query = Book.find({ user: res.locals.user._id });
     // console.log(res.locals.user);
+
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit;
+    const skip = (page - 1) * limit;
+    
+    query = query.skip(skip).limit(limit);
+
+    const allBooks = await query;
 
     res.status(200).render('myBooks', {
         title: 'My Books Page',

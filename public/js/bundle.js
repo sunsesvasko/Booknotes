@@ -5979,6 +5979,7 @@ var _deleteNote = require("./deleteNote");
 var _createQuote = require("./createQuote");
 var _editQuote = require("./editQuote");
 var _deleteQuote = require("./deleteQuote");
+var myBooksBtn = document.querySelector('#books');
 var sections = document.querySelectorAll('section');
 var openMenu = document.querySelector('#openMenu');
 var closeMenu = document.querySelector('#closeMenu');
@@ -6038,6 +6039,25 @@ addEventListener('scroll', function () {
     if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) toTopBtn.style.visibility = 'visible';else toTopBtn.style.visibility = 'hidden';
   }
 });
+
+// My Books Page
+if (myBooksBtn) {
+  // Calculate available width and height
+  var navBar = 61;
+  var padding = 32;
+  var availableWidth = window.innerWidth - padding;
+  var availableHeight = window.innerHeight - navBar - padding;
+
+  // First row is always -1, because of the add note container
+  var docSize = 218; // 202px element and 16px padding from 'gap' between elements
+  var docsPerRow = Math.floor(availableWidth / docSize);
+  var totalRows = Math.floor(availableHeight / docSize);
+  var totalPerPage = docsPerRow * totalRows - 1;
+  console.log(totalPerPage);
+  myBooksBtn.addEventListener('click', function () {
+    window.location.assign("/books?page=1&limit=".concat(totalPerPage));
+  });
+}
 
 // Hamburger Menu 
 if (openMenu) {
@@ -6135,22 +6155,23 @@ if (addBookForm) {
 // Open Book Buttons
 if (openBookBtns.length > 0) {
   // Calculate available width and height
-  var navBar = 61;
-  var padding = 32;
+  var _navBar = 61;
+  var _padding = 32;
   var leftContainer = 257.45;
-  var availableWidth = window.innerWidth - leftContainer - padding;
-  var availableHeight = window.innerHeight - navBar - padding;
+  var _availableWidth = window.innerWidth - leftContainer - _padding;
+  var _availableHeight = window.innerHeight - _navBar - _padding;
 
   // First row is always -1, because of the add note container
-  var docSize = 218; // 202px element and 16px padding from 'gap' between elements
-  var docsPerRow = Math.floor(availableWidth / docSize);
-  var totalRows = Math.floor(availableHeight / docSize);
-  var totalPerPage = docsPerRow * totalRows - 1;
-  console.log(totalPerPage);
+  var _docSize = 218; // 202px element and 16px padding from 'gap' between elements
+  var _docsPerRow = Math.floor(_availableWidth / _docSize);
+  var _totalRows = Math.floor(_availableHeight / _docSize);
+  var _totalPerPage = _docsPerRow * _totalRows - 1;
+  // console.log(totalPerPage);
+
   openBookBtns.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       var bookTitle = e.target.parentElement.firstElementChild.textContent;
-      window.location.assign("/books/".concat(bookTitle, "?page=1&limit=").concat(totalPerPage));
+      window.location.assign("/books/".concat(bookTitle, "?page=1&limit=").concat(_totalPerPage));
     });
   });
 }
