@@ -1,8 +1,5 @@
 === PRIORITY TO-DO LIST ===
-* Be able to delete note (done)
-* Be able to delete quote 
-* Be able to open note & update them (done) 
-* Be able to open quote & update them (done)
+
 
 === TO-DO LIST eventually ===
 1. Add an Error Page
