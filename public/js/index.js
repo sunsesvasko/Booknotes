@@ -171,10 +171,25 @@ if(addBookForm) {
 
 // Open Book Buttons
 if(openBookBtns.length > 0) {
+    // Calculate available width and height
+    const navBar = 61;
+    const padding = 32;
+    const leftContainer = 257.45;
+    const availableWidth = (window.innerWidth - leftContainer) - padding;
+    const availableHeight = (window.innerHeight - navBar) - padding;
+
+    // First row is always -1, because of the add note container
+    const docSize = 218; // 202px element and 16px padding from 'gap' between elements
+    const docsPerRow = Math.floor(availableWidth / docSize);
+    const totalRows = Math.floor(availableHeight/ docSize);
+
+    const totalPerPage = (docsPerRow * totalRows) - 1;
+    console.log(totalPerPage);
+
     openBookBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const bookTitle = e.target.parentElement.firstElementChild.textContent;
-            window.location.assign(`/books/${bookTitle}?page=1&limit=5`);
+            window.location.assign(`/books/${bookTitle}?page=1&limit=${totalPerPage}`);
         })
     })
 }
