@@ -1,5 +1,5 @@
 === PRIORITY TO-DO LIST ===
-
+- Make all pages responsive
 
 === TO-DO LIST eventually ===
 1. Add an Error Page
