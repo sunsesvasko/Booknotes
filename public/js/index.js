@@ -174,7 +174,7 @@ if(openBookBtns.length > 0) {
     openBookBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const bookTitle = e.target.parentElement.firstElementChild.textContent;
-            window.location.assign(`/books/${bookTitle}`);
+            window.location.assign(`/books/${bookTitle}?page=1&limit=5`);
         })
     })
 }

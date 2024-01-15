@@ -32,14 +32,21 @@ exports.getMyBooksPage = catchAsync(async(req, res, next) => {
 });
 
 exports.getBookPage = catchAsync(async(req, res, next) => {
-    const book = await Book.findOne({ title: req.params.title }).populate({
+    const page = req.query.page * 1 || 1;
+    const limit = req.query.limit;
+    const skip = (page - 1) * limit;
+
+    let book = await Book.findOne({ title: req.params.title }).populate({
         path: 'notes',
-        select: 'title description content -book'
+        select: 'title description content -book',
+        options: {
+            skip,
+            limit
+        }
     }).populate({
         path: 'quotes',
         select: 'quote quotee -book'
     }).select('title author');
-    // console.log(book.notes);
 
     res.status(200).render('book', {
         title: book.title,

@@ -6137,7 +6137,7 @@ if (openBookBtns.length > 0) {
   openBookBtns.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       var bookTitle = e.target.parentElement.firstElementChild.textContent;
-      window.location.assign("/books/".concat(bookTitle));
+      window.location.assign("/books/".concat(bookTitle, "?page=1&limit=5"));
     });
   });
 }
