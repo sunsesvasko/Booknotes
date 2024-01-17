@@ -53,7 +53,11 @@ exports.getBookPage = catchAsync(async(req, res, next) => {
         }
     }).populate({
         path: 'quotes',
-        select: 'quote quotee -book'
+        select: 'quote quotee -book',
+        options: {
+            skip,
+            limit
+        }
     }).select('title author');
 
     res.status(200).render('book', {

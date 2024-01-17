@@ -8,6 +8,7 @@ import { deleteNote } from './deleteNote';
 import { createQuote } from './createQuote';
 import { editQuote } from './editQuote';
 import { deleteQuote } from './deleteQuote';
+import path from 'path';
 
 const myBooksBtn = document.querySelector('#books');
 const sections = document.querySelectorAll('section');
@@ -39,6 +40,7 @@ const deleteNoteBtns = document.querySelectorAll('.deleteNote');
 const deleteQuoteBtns = document.querySelectorAll('.deleteQuote');
 const quoteContainers = document.querySelectorAll('.quoteContainer');
 const openedQuoteContainer = document.querySelector('.openedQuoteContainer');
+const pages = document.querySelectorAll('.page');
 
 const headerOffsetTop = header.offsetTop;
 let currentNoteTitle = '';
@@ -88,7 +90,7 @@ if(myBooksBtn) {
     const totalRows = Math.floor(availableHeight/ docSize);
 
     const totalPerPage = (docsPerRow * totalRows) - 1;
-    console.log(totalPerPage);
+    // console.log(totalPerPage);
     myBooksBtn.addEventListener('click', () => {
         window.location.assign(`/books?page=1&limit=${totalPerPage}`);
     })
@@ -424,3 +426,63 @@ if(deleteQuoteBtns.length > 0) {
         });
     });
 }
+
+// Pages
+if(pages.length > 0) {
+    pages.forEach(page => {
+        page.addEventListener('click', (e) => {
+            // Current URL
+            const pathname = window.location.pathname;
+            const search = window.location.search;
+            
+            // Calculate new page
+            const currentPage = search.split('&')[0];
+            const nextPage = e.target.textContent;
+            let tempPage = currentPage.split('=');
+            tempPage.pop();
+            tempPage.push('=');
+            tempPage.push(nextPage);
+            const newPage = tempPage.join('');
+
+            // Calculate new search
+            const tempSearch = search.split('&');
+            tempSearch.shift();
+            tempSearch.unshift(newPage);
+            const newSearch = tempSearch.join('&');
+
+            // Calculate new pathname
+            const tempPathName = [pathname, newSearch];
+            const newPathName = tempPathName.join('');
+
+            location.assign(newPathName);
+        });
+    });
+}
+
+// console.log(window.location)
+
+// Current URL
+const pathname = window.location.pathname;
+const search = window.location.search;
+
+// Calculate new page
+const currentPage = search.split('&')[0];
+const n = 3;
+let tempPage = currentPage.split('=');
+tempPage.pop();
+tempPage.push('=');
+tempPage.push(n);
+const newPage = tempPage.join('');
+
+// Calculate new search
+const tempSearch = search.split('&');
+tempSearch.shift();
+tempSearch.unshift(newPage);
+const newSearch = tempSearch.join('&');
+
+// Calculate new pathname
+const tempPathName = [pathname, newSearch];
+const newPathName = tempPathName.join('');
+
+
+

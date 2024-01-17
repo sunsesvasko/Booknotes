@@ -104,6 +104,7 @@ body {
 
 .rightContainer {
     width: 100%;
+    position: relative;
     background-color: #F7DCEC;
 }
 
@@ -572,4 +573,30 @@ body {
 #editQuoteContent {
     resize: none;
     margin-top: 0.5rem;
+}
+
+/* PAGES */
+
+.pages {
+    gap: 1rem;
+    width: calc(100vw - 257.45px);
+    bottom: 2rem;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    /* background-color: red; */
+}
+
+.page {
+    color: white;
+    padding: 8px;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    background-color: #418aff;
+}
+
+.page:hover {
+    cursor: pointer;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.50);
+    background-color: #317efa;
 }
