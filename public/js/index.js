@@ -20,7 +20,7 @@ const contactBtn = document.querySelector('#contact');
 const header = document.querySelector('.mainMenu');
 const toTopBtn = document.querySelector('#toTopBtn');
 const loginForm = document.querySelector('.loginForm');
-const LogoutBtn = document.querySelector('#logout');
+const LogoutBtns = document.querySelectorAll('.logout');
 const registerForm = document.querySelector('.registerForm');
 const addBookBtn = document.querySelector('#addBookBtn');
 const addBookForm = document.querySelector('.addBookForm');
@@ -150,8 +150,8 @@ if(loginForm) {
 }
 
 // Logout
-if(LogoutBtn) {
-    LogoutBtn.addEventListener('click', logout);
+if(LogoutBtns.length > 0) {
+    LogoutBtns.forEach(btn => btn.addEventListener('click', logout));
 }
 
 // Register

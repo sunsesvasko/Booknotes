@@ -6472,7 +6472,7 @@ var contactBtn = document.querySelector('#contact');
 var header = document.querySelector('.mainMenu');
 var toTopBtn = document.querySelector('#toTopBtn');
 var loginForm = document.querySelector('.loginForm');
-var LogoutBtn = document.querySelector('#logout');
+var LogoutBtns = document.querySelectorAll('.logout');
 var registerForm = document.querySelector('.registerForm');
 var addBookBtn = document.querySelector('#addBookBtn');
 var addBookForm = document.querySelector('.addBookForm');
@@ -6599,8 +6599,10 @@ if (loginForm) {
 }
 
 // Logout
-if (LogoutBtn) {
-  LogoutBtn.addEventListener('click', _login.logout);
+if (LogoutBtns.length > 0) {
+  LogoutBtns.forEach(function (btn) {
+    return btn.addEventListener('click', _login.logout);
+  });
 }
 
 // Register

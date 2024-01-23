@@ -56,7 +56,7 @@
     text-decoration: none;
 }
 
-#profile, #logout {
+#profile, .logout {
     cursor: pointer;
 }
 
